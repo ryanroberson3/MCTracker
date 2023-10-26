@@ -9,3 +9,5 @@
 
 rootProject.name = 'MCTracker'
 include('app')
+include 'McTrackerServiceLambda'
+
