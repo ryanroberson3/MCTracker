@@ -198,7 +198,21 @@ outome_wl // string
 ### 7.2.2 `TotalW/LHeroIndex` GSI table
 ```
 email // partition key, String
-hero // PlayerCharacter
+hero // list
+outome_wl // string
+```
+
+### 7.2.3 `TotalW/LVillainIndex` GSI table
+```
+email // partition key, String
+villain // list
+outome_wl // string
+```
+
+### 7.2.4 `TotalW/LAspectIndex` GSI table
+```
+email // partition key, String
+aspect // string in dynamodb
 outome_wl // string
 ```
 
