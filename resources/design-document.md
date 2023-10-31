@@ -4,9 +4,10 @@
 
 ## 1. Problem Statement
 
-_**MCTracker** is an app that keeps track of your Marvel Champions collection and logs games for players.
-It will allow players to log the Hero they use, the villain they face, whether they won or lost, and what aspect they played in.
-It will also keep track of overall w/l stats and w/l stats with certain heroes._
+**MCTracker** is an app that keeps track of your Marvel Champions collection and logs games for players. Marvel Champions
+is a LCG (living card game) that you can play solo or up to 4 players. The app will allow players to log the Hero they use, 
+the villain they face, whether they won or lost, and what aspect they played in. It will also keep track of overall 
+w/l stats and w/l stats with certain heroes.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -14,17 +15,19 @@ _List the most important questions you have about your design, or things that yo
 
 1. Do I need to have a GSI table for all of the statistics?
 2. Are the endpoints correctly mocked out?
+3. The typos in endpoints
+4. villain, hero, aspect name in the endpoint.
 
 
 ## 3. Use Cases
 
-U1. _As a [MC player], I want to create a new game log for a MC game that I just played_
+U1. _As a [MC player], I want to create a new game log for a MC game that I have played_
 
-U2. _As a [MC player], I want to view(get) a list of all my game logs_
+U2. _As a [MC player], I want to view a list of all my game logs_
 
-U3. _As a [MC player], I want to view(get) a single game log_
+U3. _As a [MC player], I want to view a single game log_
 
-U4. _As a [MC player], I want to update a game log for a MC game_
+U4. _As a [MC player], I want to update a game log for a MC game using a subset of fields_
 
 U5. _As a [MC player], I want to delete a game from my game logs_
 
@@ -39,9 +42,11 @@ U9. _As a [MC player], I want to view my w/l stats by the different aspect I pla
 
 ## 3.1 Stretch Use cases:
 
-SU1. _As a [MC player], I want to view a list of my favorite heroes_
+SU1. _As a [MC player], I want to be able to mark certain heroes as my favorite_
 
-SU2. _As a [MC player], I want to query all my games in the game log by hero, aspect, villain, etc_
+SU2. _As a [MC player], I want to view a list of my favorite heroes_
+
+SU3. _As a [MC player], I want to query all my games in the game log by hero, aspect, villain, etc_
 
 
 
@@ -123,7 +128,7 @@ roles // List<Enum>
     - If the given game ID is not found, will throw a `GameNotFoundException`
 
 ### 6.2.1.1 _Get all GameLogs by player Endpoint_
-- Accepts `GET` requests to `/gamelogs/:`
+- Accepts `GET` requests to `/gamelogs`
 - Takes the email from cognito
 - Accepts an email and returns the corresponding list of GameLogModels.
     - If the given game ID is not found, will throw a `GameNotFoundException`
@@ -137,22 +142,22 @@ roles // List<Enum>
 ### 6.2.3 _Update GameLog Endpoint_
 - Accepts a `PUT` request to `/gamelogs/:gameId`
 - Takes the email from cognito
-- Accepts data to update a gameLog and returns the updated gameLog.
+- Accepts a subset of data to update a gameLog and returns the updated gameLog.
     - If the given game ID is not found, will throw a `GameNotFoundException`
     - throws `UnauthorizedOwnerException` if attempted to be updated by an unauthorized user.
 
 ### 6.2.4 _Get Stats Endpoint_
-- Accepts `GET` requests to `/gamelogs/:`
+- Accepts `GET` requests to `/gamelogs`
 - Takes the email from cognito
 - Accepts an email and returns the overall w/l stats for that person's profile.
 
 ### 6.2.5 _Get Hero Stats Endpoint_
-- Accepts `GET` request to `/gamelogs/:hero`
+- Accepts `GET` request to `/gamelogs/:heroName`
 - Takes the email from cognito
 - Accepts an email and returns the w/l stats for a certain hero for that person's profile.
 
 ### 6.2.6 _Get Villain Stats Endpoint_
-- Accepts `GET` request to `/gamelogs/:villain`
+- Accepts `GET` request to `/gamelogs/:villainName`
 - Takes the email from cognito
 - Accepts an email and returns the w/l stats for a certain villain for that person's profile.
 
@@ -165,39 +170,36 @@ roles // List<Enum>
 
 # 7. Tables
 
-_Define the DynamoDB tables you will need for the data your service will use. It may be helpful to first think of what
-objects your service will need, then translate that to a table structure, like with the *`Playlist` POJO* versus the
-`playlists` table in the Unit 3 project._
 
 ## 7.1 `gamelogs`
 ```
 email // partition key, string
 gameId // sort key, String
 date // string (converted date)
-outcome(w/l) // enum
-aspect // enum
-hero // PlayerCharacter
-villain // PlayerCharacter
+outcome_wl // enum / string in DynamoDb
+aspect // enum / string in DynamoDb
+hero // list
+villain // list
 
 ```
 
 ## 7.2 `playercharacters`
 ```
 name // partition key, string
-role // Enum
+role // Enum / string in DynamoDb
 ```
 
 ### 7.2.1 `TotalW/LIndex` GSI table
 ```
 email // partition key, String
-outome(w/l) // string
+outome_wl // string
 ```
 
 ### 7.2.2 `TotalW/LHeroIndex` GSI table
 ```
 email // partition key, String
 hero // PlayerCharacter
-outome(w/l) // string
+outome_wl // string
 ```
 
 
