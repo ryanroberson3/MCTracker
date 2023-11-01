@@ -144,7 +144,7 @@ roles // List<Enum>
 - Takes the email from cognito
 - Accepts a subset of data to update a gameLog and returns the updated gameLog.
     - If the given game ID is not found, will throw a `GameNotFoundException`
-    - throws `UnauthorizedOwnerException` if attempted to be updated by an unauthorized user.
+    - throws `UnauthorizedUserException` if attempted to be updated by an unauthorized user.
 
 ### 6.2.4 _Get Stats Endpoint_
 - Accepts `GET` requests to `/gamelogs`
