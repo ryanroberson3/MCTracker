@@ -79,6 +79,9 @@ We will use API Gateway and AWS Lambda to create the following endpoints:
 - GetAllGameLogs
 - UpdateGameLog
 - DeleteGameLog
+- GetAllPlayerCharacters
+- GetAllAspects
+- GetAllOutcomes
 - GetOverallStats
 - GetHeroStats
 - GetVillainStats
@@ -100,16 +103,9 @@ gameId // string
 date // string (converted date)
 outcome // enum
 aspect // enum
-gameCharacters // List<PlayerCharacter>
+hero // List<String>
+villain // string
 
-```
-
-```
-
-// PlayerCharacterModel
-
-name // string
-roles // List<Enum>   
 
 ```
 
@@ -133,35 +129,48 @@ roles // List<Enum>
 - Accepts an email and returns the corresponding list of GameLogModels.
     - If the given game ID is not found, will throw a `GameNotFoundException`
 
-### 6.2.2 _Delete GameLog Endpoint_
+### 6.2.2 _Get all PlayerCharacters Endpoint_
+- Accepts `GET` requests to `/playercharacters`
+- Query's the playercharacters and returns all the characters for the dropdown menu.
+- if the role parameter is provided, it will return all the characters for that role.
+
+### 6.2.4 _Get all Aspects Endpoint_
+- Accepts `GET` requests to `/aspects`
+- Returns all the aspect possibilities.
+
+### 6.2.5 _Get all Outcomes Endpoint_
+- Accepts `GET` requests to `/outcomes`
+- Returns all the outcome possibilities.
+
+### 6.2.6 _Delete GameLog Endpoint_
 - Accepts a `DELETE` request to `/gamelogs/:gameId`
 - Takes the email from cognito
 - Accepts a game ID and returns the corresponding Deleted GameLogModel.
     - If the given game ID is not found, will throw a `GameNotFoundException`
 
-### 6.2.3 _Update GameLog Endpoint_
+### 6.2.7 _Update GameLog Endpoint_
 - Accepts a `PUT` request to `/gamelogs/:gameId`
 - Takes the email from cognito
 - Accepts a subset of data to update a gameLog and returns the updated gameLog.
     - If the given game ID is not found, will throw a `GameNotFoundException`
     - throws `UnauthorizedUserException` if attempted to be updated by an unauthorized user.
 
-### 6.2.4 _Get Stats Endpoint_
+### 6.2.8 _Get Stats Endpoint_
 - Accepts `GET` requests to `/gamelogs`
 - Takes the email from cognito
 - Accepts an email and returns the overall w/l stats for that person's profile.
 
-### 6.2.5 _Get Hero Stats Endpoint_
+### 6.2.9 _Get Hero Stats Endpoint_
 - Accepts `GET` request to `/gamelogs/:heroName`
 - Takes the email from cognito
 - Accepts an email and returns the w/l stats for a certain hero for that person's profile.
 
-### 6.2.6 _Get Villain Stats Endpoint_
+### 6.2.10 _Get Villain Stats Endpoint_
 - Accepts `GET` request to `/gamelogs/:villainName`
 - Takes the email from cognito
 - Accepts an email and returns the w/l stats for a certain villain for that person's profile.
 
-### 6.2.7 _Get Aspect Stats Endpoint_
+### 6.2.11 _Get Aspect Stats Endpoint_
 - Accepts `GET` request to `/gamelogs/:aspect`
 - Takes the email from cognito
 - Accepts an email and returns the w/l stats for a certain aspect for that person's profile.
@@ -179,7 +188,7 @@ date // string (converted date)
 outcome_wl // enum / string in DynamoDb
 aspect // enum / string in DynamoDb
 hero // list
-villain // list
+villain // string
 
 ```
 
@@ -189,30 +198,24 @@ name // partition key, string
 role // Enum / string in DynamoDb
 ```
 
-### 7.2.1 `TotalW/LIndex` GSI table
-```
-email // partition key, String
-outome_wl // string
-```
-
 ### 7.2.2 `TotalW/LHeroIndex` GSI table
 ```
 email // partition key, String
-hero // list
+hero // sort key, string
 outome_wl // string
 ```
 
 ### 7.2.3 `TotalW/LVillainIndex` GSI table
 ```
 email // partition key, String
-villain // list
+villain // sort key, string
 outome_wl // string
 ```
 
 ### 7.2.4 `TotalW/LAspectIndex` GSI table
 ```
 email // partition key, String
-aspect // string in dynamodb
+aspect // sort key, string in dynamodb
 outome_wl // string
 ```
 
