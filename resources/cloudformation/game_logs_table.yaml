@@ -1,0 +1,47 @@
+Resources:
+  GameLogsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: game_logs
+      AttributeDefinitions:
+        - AttributeName: "email"
+          AttributeType: "S"
+        - AttributeName: "gameId"
+          AttributeType: "S"
+        - AttributeName: "hero"
+          AttributeType: "S"
+        - AttributeName: "villain"
+          AttributeType: "S"
+        - AttributeName: "aspect"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "email"
+          KeyType: "HASH"
+        - AttributeName: "gameId"
+          KeyType: "RANGE"
+      BillingMode: "PAY_PER_REQUEST"
+      GlobalSecondaryIndexes:
+        - IndexName: "TotalWLHeroIndex"
+          KeySchema:
+            - AttributeName: "email"
+              KeyType: "HASH"
+            - AttributeName: "hero"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "TotalWLVillainIndex"
+          KeySchema:
+            - AttributeName: "email"
+              KeyType: "HASH"
+            - AttributeName: "villain"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "TotalWLAspectIndex"
+          KeySchema:
+            - AttributeName: "email"
+              KeyType: "HASH"
+            - AttributeName: "aspect"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
