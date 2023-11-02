@@ -359,6 +359,12 @@ Resources:
           AttributeType: "S"
         - AttributeName: "gameId"
           AttributeType: "S"
+        - AttributeName: "hero"
+          AttributeType: "S"
+        - AttributeName: "villain"
+          AttributeType: "S"
+        - AttributeName: "aspect"
+          AttributeType: "S"
       KeySchema:
         - AttributeName: "email"
           KeyType: "HASH"
