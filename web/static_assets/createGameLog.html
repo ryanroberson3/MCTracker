@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="assets/createGameLog.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="background">
+    <header class="header" id="header"></header>
+    <div class="card2"></div>
+
+    <div class="card">
+        <h2>Create GameLog</h2>
+        <form class="card-content" id="create-gameLog-form">
+            <p class="hidden error" id="error-message"></p>
+            <p class="form-field">
+                <label for="date"> Date: </label>
+                <input type="date" required class="validated-field" id="date" name="date" >
+            </p>
+            <p class="form-field">
+                <label>Select aspect: </label>
+                <select name="aspect" id="aspect">
+                    <option value="basic">Basic</option>
+                    <option value="justice">Justice</option>
+                </select>
+            </p>
+            <p class="form-field">
+                <label>Select outcome: </label>
+                <select name="outcomeWL" id="outcomeWL">
+                    <option value="win">Win</option>
+                    <option value="lost">Lost</option>
+                </select>
+            </p>
+            <p class="form-field">
+                <label>Select villain: </label>
+                <select name="villain" id="villain">
+                    <option value="ultron">Ultron</option>
+                    <option value="venom">Venom</option>
+                </select>
+            </p>
+            <p class="form-field">
+                <label>Select heroes: </label>
+                <select name="heroes" id="heroes">
+                    <option value="gambit">Gambit</option>
+                    <option value="rogue">Rogue</option>
+                </select>
+            </p>
+
+            <p>
+                <a href="#" class="button" id="create">Submit</a>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>
