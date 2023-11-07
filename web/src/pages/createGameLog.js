@@ -8,7 +8,7 @@ class CreateGameLog extends BindingClass {
 
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'submit', 'redirectToViewGameLog', this]);
+        this.bindClassMethods(['mount', 'submit', 'redirectToViewGameLog', this]);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewGameLog);
         this.header = new Header(this.dataStore);
@@ -24,7 +24,7 @@ class CreateGameLog extends BindingClass {
         this.clientLoaded();
     }
 
-    submit() {
+    async submit(evt) {
         evt.preventDefault();
 
         const errorMessageDisplay = document.getElementById('error-message');
@@ -37,9 +37,9 @@ class CreateGameLog extends BindingClass {
 
         const date = document.getElementById('date').value;
         const aspect = document.getElementById('aspect').value;
-        const outcome = document.getElementById('outcome').value;
+        const outcome = document.getElementById('outcomeWL').value;
 
-        const heroList = document.getElementById('heroes').value;
+        const heroes = document.getElementById('heroes').value;
         const villain = document.getElementById('villain').value;
 
         const gameLog = await this.client.createGameLog(date, aspect, outcomeWL, villain, heroes, (error) => {
@@ -49,4 +49,21 @@ class CreateGameLog extends BindingClass {
         });
         this.dataStore.set('gameLog', gameLog);
     }
+
+
+    redirectToViewGameLog() {
+        const gameLog = this.dataStore.get('gameLog');
+        if (gameLog != null) {
+            console.log("Redirecting to viewGameLog.html");
+            window.location.href = `/viewGameLog.html?id=${gameLog.gameId}`;
+        }
+    }
 }
+
+
+const main = async () => {
+    const createGameLog = new CreateGameLog();
+    createGameLog.mount();
+};
+
+window.addEventListener('DOMContentLoaded', main);

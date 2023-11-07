@@ -1,4 +1,4 @@
-import MusicPlaylistClient from '../api/musicPlaylistClient';
+import MusicPlaylistClient from '../api/mcTrackerClient';
 import BindingClass from "../util/bindingClass";
 
 /**
