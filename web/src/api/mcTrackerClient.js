@@ -8,7 +8,7 @@ export default class McTrackerClient extends BindingClass {
 
     constructor(props = {}) {
         super();
-        const methodsToBind = ['createGameLog'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -73,9 +73,23 @@ export default class McTrackerClient extends BindingClass {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.date.gameLog
+            return response.data.gameLog
         } catch (error) {
             this.handleError(error, errorCallback)
+        }
+    }
+
+    handleError(error, errorCallback) {
+        console.error(error);
+
+        const errorFromApi = error?.response?.data?.error_message;
+        if (errorFromApi) {
+            console.error(errorFromApi)
+            error.message = errorFromApi;
+        }
+
+        if (errorCallback) {
+            errorCallback(error);
         }
     }
 }

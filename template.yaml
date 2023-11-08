@@ -285,7 +285,6 @@ Resources:
 #            Method: get
 #            Auth:
 #              Authorizer: 'NONE'
-
   CreateGameLogLambda:
     Type: AWS::Serverless::Function
     Properties:
@@ -303,8 +302,9 @@ Resources:
         MCTracker:
           Type: Api
           Properties:
-            Path: /gamelogs
+            Path: /game_logs
             Method: post
+
 
 #  UpdatePlaylistLambda:
 #    Type: AWS::Serverless::Function

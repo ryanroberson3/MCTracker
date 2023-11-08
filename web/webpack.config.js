@@ -24,6 +24,7 @@ module.exports = {
   },
   entry: {
     createGameLog: path.resolve(__dirname, 'src', 'pages', 'createGameLog.js'),
+    index: path.resolve(__dirname, 'src', 'pages', 'index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

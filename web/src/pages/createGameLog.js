@@ -8,7 +8,7 @@ class CreateGameLog extends BindingClass {
 
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToViewGameLog', this]);
+        this.bindClassMethods(['mount', 'submit', 'redirectToViewGameLog'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewGameLog);
         this.header = new Header(this.dataStore);
@@ -37,7 +37,7 @@ class CreateGameLog extends BindingClass {
 
         const date = document.getElementById('date').value;
         const aspect = document.getElementById('aspect').value;
-        const outcome = document.getElementById('outcomeWL').value;
+        const outcomeWL = document.getElementById('outcomeWL').value;
 
         const heroes = document.getElementById('heroes').value;
         const villain = document.getElementById('villain').value;

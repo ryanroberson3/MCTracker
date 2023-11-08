@@ -1,4 +1,4 @@
-import RiverPetSittingClient from '../api/mcTrackerClient';
+import McTrackerClient from '../api/mcTrackerClient';
 import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 
@@ -6,7 +6,7 @@ import BindingClass from "../util/bindingClass";
 class Homepage extends BindingClass {
     constructor() {
         super();
-
+        
         this.bindClassMethods(['mount'], this);
 
 
