@@ -1,7 +1,9 @@
 package com.nashss.se.mctracker.dynamodb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.nashss.se.mctracker.converters.LocalDateConverter;
+import com.nashss.se.mctracker.dependency.CustomListDeserializer;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -58,7 +60,7 @@ public class GameLog {
     public void setAspect(String aspect) {
         this.aspect = aspect;
     }
-    @DynamoDBAttribute(attributeName = "hero")
+    @DynamoDBAttribute(attributeName = "heroes")
     public List<String> getHeroes() {
         return heroes;
     }
