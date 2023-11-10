@@ -12,12 +12,12 @@ public class GameLogModel {
     private String gameId;
     private LocalDate date;
     private String outcomeWL;
-    private String aspect;
+    private List<String> aspect;
     private List<String> heroes;
     private String villain;
 
     public GameLogModel(String email, String gameId, LocalDate date, String outcomeWL,
-                        String aspect, List<String> heroes, String villain) {
+                        List<String> aspect, List<String> heroes, String villain) {
         this.email = email;
         this.gameId = gameId;
         this.date = date;
@@ -43,7 +43,7 @@ public class GameLogModel {
         return outcomeWL;
     }
 
-    public String getAspect() {
+    public List<String> getAspect() {
         return aspect;
     }
 
@@ -77,7 +77,7 @@ public class GameLogModel {
         private String gameId;
         private LocalDate date;
         private String outcomeWL;
-        private String aspect;
+        private List<String> aspect;
         private List<String> heroes;
         private String villain;
 
@@ -97,7 +97,7 @@ public class GameLogModel {
             this.outcomeWL = outcomeWL;
             return this;
         }
-        public Builder withAspect(String aspect) {
+        public Builder withAspect(List<String> aspect) {
             this.aspect = aspect;
             return this;
         }

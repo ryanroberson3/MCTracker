@@ -44,7 +44,8 @@ public class CreateGameLogActivityTest {
 
         String outcome = "won";
 
-        String aspect = "Justice";
+        List<String> aspect = new ArrayList<>();
+                aspect.add("Justice");
 
         String email = "test@gmail.com";
 

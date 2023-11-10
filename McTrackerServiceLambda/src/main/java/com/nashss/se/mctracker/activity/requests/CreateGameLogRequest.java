@@ -12,12 +12,12 @@ public class CreateGameLogRequest {
     private final String email;
     private final String date;
     private final String outcomeWL;
-    private final String aspect;
+    private final List<String> aspect;
     private final List<String> heroes;
     private final String villain;
 
     public CreateGameLogRequest(String email, String date, String outcomeWL,
-                                String aspect, List<String> heroes, String villain) {
+                                List<String> aspect, List<String> heroes, String villain) {
         this.email = email;
         this.date = date;
         this.outcomeWL = outcomeWL;
@@ -38,7 +38,7 @@ public class CreateGameLogRequest {
         return outcomeWL;
     }
 
-    public String getAspect() {
+    public List<String> getAspect() {
         return aspect;
     }
 
@@ -71,7 +71,7 @@ public class CreateGameLogRequest {
         private String email;
         private String date;
         private String outcomeWL;
-        private String aspect;
+        private List<String> aspect;
         private List<String> heroes;
         private String villain;
 
@@ -87,7 +87,7 @@ public class CreateGameLogRequest {
             this.outcomeWL = outcomeWL;
             return this;
         }
-        public Builder withAspect(String aspect) {
+        public Builder withAspect(List<String> aspect) {
             this.aspect = aspect;
             return this;
         }

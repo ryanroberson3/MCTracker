@@ -16,7 +16,7 @@ public class GameLog {
     private String gameId;
     private LocalDate date;
     private String outcomeWL;
-    private String aspect;
+    private List<String> aspect;
     private List<String> heroes;
     private String villain;
 
@@ -53,11 +53,11 @@ public class GameLog {
         this.outcomeWL = outcomeWL;
     }
     @DynamoDBAttribute(attributeName = "aspect")
-    public String getAspect() {
+    public List<String> getAspect() {
         return aspect;
     }
 
-    public void setAspect(String aspect) {
+    public void setAspect(List<String> aspect) {
         this.aspect = aspect;
     }
     @DynamoDBAttribute(attributeName = "heroes")

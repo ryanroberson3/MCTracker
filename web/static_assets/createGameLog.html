@@ -17,19 +17,40 @@
                 <input type="date" required class="validated-field" id="date" name="date" >
             </p>
             <p class="form-field">
-                <label for="aspect"></label>
-                <select name="aspect" id="aspect">
-                    <option value=""></option>
-                    <option value="Basic">Basic</option>
-                    <option value="Justice">Justice</option>
-                    <option value="Aggression">Aggression</option>
-                    <option value="Protection">Protection</option>
-                    <option value="Leadership">Leadership</option>
-                    <option value="Pool">Pool</option>
-                </select>
+                <label>Choose Aspects:</label><br>
+            
+                <div class="custom-checkbox">
+                    <input type="checkbox" name="aspect" value="Basic" id="aspect-basic">
+                    <label for="aspect-basic">Basic</label>
+                </div>
+            
+                <div class="custom-checkbox">
+                    <input type="checkbox" name="aspect" value="Justice" id="aspect-justice">
+                    <label for="aspect-justice">Justice</label>
+                </div>
+            
+                <div class="custom-checkbox">
+                    <input type="checkbox" name="aspect" value="Aggression" id="aspect-aggression">
+                    <label for="aspect-aggression">Aggression</label>
+                </div>
+            
+                <div class="custom-checkbox">
+                    <input type="checkbox" name="aspect" value="Protection" id="aspect-protection">
+                    <label for="aspect-protection">Protection</label>
+                </div>
+            
+                <div class="custom-checkbox">
+                    <input type="checkbox" name="aspect" value="Leadership" id="aspect-leadership">
+                    <label for="aspect-leadership">Leadership</label>
+                </div>
+            
+                <div class="custom-checkbox">
+                    <input type="checkbox" name="aspect" value="Pool" id="aspect-pool">
+                    <label for="aspect-pool">Pool</label>
+                </div>
             </p>
             <p class="form-field">
-                <label for="outcomeWL"></label>
+                <label>Choose Outcome:</label><br>
                 <select name="outcomeWL" id="outcomeWL">
                     <option value=""></option>
                     <option value="Win">Win</option>
@@ -38,7 +59,7 @@
                 </select>
             </p>
             <p class="form-field">
-                <label for="villain"></label>
+                <label>Choose Villain:</label><br>
                 <select name="villain" id="villain">
                     <option value=""></option>
                     <option value="ultron">Ultron</option>

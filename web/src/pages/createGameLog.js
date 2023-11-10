@@ -36,7 +36,9 @@ class CreateGameLog extends BindingClass {
         createButton.innerText = 'Creating...';
 
         const date = document.getElementById('date').value;
-        const aspect = document.getElementById('aspect').value;
+        const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
+        const aspect = Array.from(aspectCheckboxes).map(checkbox => checkbox.value);
+
         const outcomeWL = document.getElementById('outcomeWL').value;
 
         const heroesCheckboxes = document.querySelectorAll('input[name="heroes"]:checked');

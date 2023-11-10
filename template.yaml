@@ -388,14 +388,6 @@ Resources:
               KeyType: "RANGE"
           Projection:
             ProjectionType: "ALL"
-        - IndexName: "TotalWLAspectIndex"
-          KeySchema:
-            - AttributeName: "email"
-              KeyType: "HASH"
-            - AttributeName: "aspect"
-              KeyType: "RANGE"
-          Projection:
-            ProjectionType: "ALL"
 
   PlayerCharactersTable:
       Type: AWS::DynamoDB::Table
