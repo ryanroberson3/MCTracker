@@ -39,7 +39,8 @@ class CreateGameLog extends BindingClass {
         const aspect = document.getElementById('aspect').value;
         const outcomeWL = document.getElementById('outcomeWL').value;
 
-        const heroes = document.getElementById('heroes').value;
+        const heroesCheckboxes = document.querySelectorAll('input[name="heroes"]:checked');
+        const heroes = Array.from(heroesCheckboxes).map(checkbox => checkbox.value);
         const villain = document.getElementById('villain').value;
 
         const gameLog = await this.client.createGameLog(date, aspect, outcomeWL, villain, heroes, (error) => {

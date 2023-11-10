@@ -91,18 +91,21 @@
     border-radius: 16px;
 }
 
-.song {
-    padding: 2px;
+.custom-checkbox {
     display: flex;
-}
-
-.song .title {
-    flex: 20%;
-}
-
-.song .album {
-    flex: 80%;
-}
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .custom-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Additional styling for checked checkboxes */
+  .custom-checkbox input[type="checkbox"]:checked + label {
+    text-decoration: none;
+    color: var(--tertiary-color);
+  }
 
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.
