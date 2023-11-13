@@ -1,7 +1,7 @@
 package com.nashss.se.mctracker.dynamodb.models;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import java.util.Objects;
@@ -20,7 +20,7 @@ public class PlayerCharacter {
     public void setName(String name) {
         this.name = name;
     }
-    @DynamoDBAttribute(attributeName = "role")
+    @DynamoDBRangeKey(attributeName = "role")
     public String getRole() {
         return role;
     }
