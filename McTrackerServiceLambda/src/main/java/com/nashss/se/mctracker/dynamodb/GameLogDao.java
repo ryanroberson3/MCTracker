@@ -22,4 +22,11 @@ public class GameLogDao {
         return newGameLog;
     }
 
+    public GameLog getGameLogById(String email, String gameId) {
+        GameLog gameLog = dynamoDBMapper.load(GameLog.class, email, gameId);
+        if (gameLog == null) {
+            metricsPublisher.addCount(MetricsConstants.GETRESERVATION_RESERVATIONNOTFOUND_COUNT, 1);
+        }
+    }
+
 }
