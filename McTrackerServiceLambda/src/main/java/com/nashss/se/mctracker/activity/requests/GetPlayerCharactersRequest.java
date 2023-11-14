@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 @JsonDeserialize(builder = GetPlayerCharactersRequest.Builder.class)
 public class GetPlayerCharactersRequest {
-    private String role;
+    private final String role;
 
     public GetPlayerCharactersRequest(String role) {
         this.role = role;
@@ -13,10 +13,6 @@ public class GetPlayerCharactersRequest {
 
     public String getRole() {
         return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public static Builder builder() {

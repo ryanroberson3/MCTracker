@@ -11,5 +11,5 @@ import javax.inject.Singleton;
 public interface ServiceComponent {
 
     CreateGameLogActivity provideCreateGameLogActivity();
-//    GetPlayerCharactersActivity provideGetPlayerCharactersActivity();
+    GetPlayerCharactersActivity provideGetPlayerCharactersActivity();
 }

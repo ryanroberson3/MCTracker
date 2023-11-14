@@ -3,12 +3,19 @@ package com.nashss.se.mctracker.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.nashss.se.mctracker.dynamodb.models.PlayerCharacter;
 import com.nashss.se.mctracker.metrics.MetricsPublisher;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Singleton
 public class PlayerCharacterDao {
     private final DynamoDBMapper dynamoDbMapper;
@@ -20,16 +27,22 @@ public class PlayerCharacterDao {
         }
 
         public List<String> getCharactersByRole(String role) {
-            List<String> characterNames = new ArrayList<>();
 
-//            ItemCollection<QueryOutcome> items = playerCharacterTable.query("role", role);
-//
-//            for (Item item : items) {
-//                String characterName = item.getString("name");
-//                characterNames.add(characterName);
-//            }
+            Map<String, AttributeValue> valueMap = new HashMap<>();
+            valueMap.put(":role", new AttributeValue().withS(role));
+            DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                    .withFilterExpression("role = :role")
+                    .withExpressionAttributeValues(valueMap);
+            PaginatedScanList<PlayerCharacter> characterNames = dynamoDbMapper.scan(PlayerCharacter.class, scanExpression);
 
-            return characterNames;
+            List<String> roleList = new ArrayList<>();
+
+            for (PlayerCharacter character : characterNames) {
+                String characterRole = character.getRole();
+                roleList.add(characterRole);
+            }
+
+            return roleList;
         }
     }
 

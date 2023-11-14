@@ -21,7 +21,6 @@ public class GetPlayerCharactersActivity {
 
     public GetPlayerCharactersResult handleRequest(final GetPlayerCharactersRequest getPlayerCharactersRequest) {
         log.info("Received GetPlayerCharactersRequest {}", getPlayerCharactersRequest);
-
         String role = getPlayerCharactersRequest.getRole();
         List<String> playerCharacters = playerCharacterDao.getCharactersByRole(role);
         return new GetPlayerCharactersResult(playerCharacters);
