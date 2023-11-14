@@ -38,7 +38,7 @@ public class PlayerCharacterDao {
             List<String> roleList = new ArrayList<>();
 
             for (PlayerCharacter character : characterNames) {
-                String characterRole = character.getRole();
+                String characterRole = character.getName();
                 roleList.add(characterRole);
             }
 

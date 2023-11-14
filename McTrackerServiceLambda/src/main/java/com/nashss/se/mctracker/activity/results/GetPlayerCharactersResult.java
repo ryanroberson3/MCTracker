@@ -29,7 +29,7 @@ public class GetPlayerCharactersResult {
     public static class Builder {
         private List<String> playerCharacters;
 
-        public Builder withSongList(List<String> playerCharacters) {
+        public Builder withPlayerCharacterList(List<String> playerCharacters) {
             this.playerCharacters = new ArrayList<>(playerCharacters);
             return this;
         }
