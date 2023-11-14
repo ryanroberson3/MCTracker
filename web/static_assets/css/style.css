@@ -34,6 +34,35 @@
   cursor: pointer;
 }
 
+.button1 {
+    background-color: var(--error-color);
+    border: none;
+    color: var(--secondary-color);
+    padding: 10px 12px 8px 12px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+  .button2 {
+    background-color: var(--tertiary-color);
+    border: none;
+    color: var(--secondary-color);
+    padding: 10px 12px 8px 12px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 12px;
+    font-size: 20px;
+    width: 40%
+    
+  }
+
 .button-group {
     display: flex;
     justify-content: space-between;
