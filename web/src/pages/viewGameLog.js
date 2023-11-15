@@ -59,7 +59,7 @@ class ViewGameLog extends BindingClass {
         for (aspectList of gameLog.aspect) {
             aspectListHtml += '<div class="aspect">' + aspectList + '</div>';
         }
-        document.getElementById('aspect-list').innerHTML = aspectListHtml;
+        document.getElementById('aspect').innerHTML = aspectListHtml;
     }
 
     

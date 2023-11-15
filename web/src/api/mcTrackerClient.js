@@ -83,13 +83,15 @@ export default class McTrackerClient extends BindingClass {
     async viewGameLog(id, errorCallback) {
         try {
             const token = await this.getTokenOrThrow("Only authenticated users can see a gameLog");
-            const response = await this.axiosClient.get(`game_logs/${id})`, {
+            const response = await this.axiosClient.get(`game_logs/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
+            console.log("Received response:", response);
             return response.data.gameLog;
         } catch (error) {
+            console.error("Error in viewGameLog:", error);
             this.handleError(error, errorCallback)
         }
     }
