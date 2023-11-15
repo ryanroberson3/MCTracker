@@ -3,6 +3,7 @@ package com.nashss.se.mctracker.models;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import static com.nashss.se.mctracker.utils.CollectionUtils.copyToList;
 
@@ -48,7 +49,7 @@ public class GameLogModel {
     }
 
     public List<String> getHeroes() {
-        return copyToList(heroes);
+        return heroes;
     }
 
     public String getVillain() {
@@ -102,7 +103,7 @@ public class GameLogModel {
             return this;
         }
         public Builder withHeroes(List<String> heroes) {
-            this.heroes = copyToList(heroes);
+            this.heroes = heroes;
             return this;
         }
         public Builder withVillain(String villain) {

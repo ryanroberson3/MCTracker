@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.util.List;
 
+
 @JsonDeserialize(builder = CreateGameLogRequest.Builder.class)
 public class CreateGameLogRequest {
 

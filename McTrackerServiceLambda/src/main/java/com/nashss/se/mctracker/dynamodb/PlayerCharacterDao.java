@@ -1,10 +1,8 @@
 package com.nashss.se.mctracker.dynamodb;
 
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.nashss.se.mctracker.dynamodb.models.PlayerCharacter;
 import com.nashss.se.mctracker.metrics.MetricsPublisher;
@@ -26,23 +24,24 @@ public class PlayerCharacterDao {
             this.metricsPublisher = metricsPublisher;
         }
 
-        public List<String> getCharactersByRole(String role) {
+    public List<String> getCharactersByRole(String role) {
+        Map<String, AttributeValue> valueMap = new HashMap<>();
+        valueMap.put(":role", new AttributeValue().withS(role));
 
-            Map<String, AttributeValue> valueMap = new HashMap<>();
-            valueMap.put(":role", new AttributeValue().withS(role));
-            DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                    .withFilterExpression("role = :role")
-                    .withExpressionAttributeValues(valueMap);
-            PaginatedScanList<PlayerCharacter> characterNames = dynamoDbMapper.scan(PlayerCharacter.class, scanExpression);
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                .withFilterExpression("role = :role")
+                .withExpressionAttributeValues(valueMap);
 
-            List<String> roleList = new ArrayList<>();
+        PaginatedScanList<PlayerCharacter> characterNames = dynamoDbMapper.scan(PlayerCharacter.class, scanExpression);
 
-            for (PlayerCharacter character : characterNames) {
-                String characterRole = character.getName();
-                roleList.add(characterRole);
-            }
+        List<String> roleList = new ArrayList<>();
 
-            return roleList;
+        for (PlayerCharacter character : characterNames) {
+            String characterRole = character.getName();
+            roleList.add(characterRole);
         }
+
+        return roleList;
+    }
     }
 
