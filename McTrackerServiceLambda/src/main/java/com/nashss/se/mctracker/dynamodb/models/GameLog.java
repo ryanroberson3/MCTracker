@@ -8,6 +8,7 @@ import com.nashss.se.mctracker.converters.LocalDateConverter;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @DynamoDBTable(tableName = "game_logs")
 public class GameLog {
@@ -21,7 +22,7 @@ public class GameLog {
     private String villain;
 
     @DynamoDBHashKey(attributeName = "email")
-    @DynamoDBIndexHashKey(globalSecondaryIndexNames = {"TotalWLHeroIndex", "TotalWLVillainIndex"}, attributeName = "email")
+    @DynamoDBIndexHashKey(globalSecondaryIndexNames = {"TotalWLIndex"}, attributeName = "email")
     public String getEmail() {
         return email;
     }
@@ -46,6 +47,7 @@ public class GameLog {
         this.date = date;
     }
     @DynamoDBAttribute(attributeName = "outcomeWL")
+    @DynamoDBIndexRangeKey(globalSecondaryIndexName = "TotalWLIndex", attributeName = "outcomeWL")
     public String getOutcomeWL() {
         return outcomeWL;
     }
@@ -62,7 +64,6 @@ public class GameLog {
         this.aspect = aspect;
     }
     @DynamoDBAttribute(attributeName = "heroes")
-    @DynamoDBIndexRangeKey(globalSecondaryIndexName = "TotalWLHeroIndex", attributeName = "heroes")
     public List<String> getHeroes() {
         return heroes;
     }
@@ -71,7 +72,6 @@ public class GameLog {
         this.heroes = heroes;
     }
     @DynamoDBAttribute(attributeName = "villain")
-    @DynamoDBIndexRangeKey(globalSecondaryIndexName = "TotalWLVillainIndex", attributeName = "villain")
     public String getVillain() {
         return villain;
     }

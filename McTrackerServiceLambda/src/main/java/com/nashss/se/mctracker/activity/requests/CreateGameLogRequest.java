@@ -2,9 +2,10 @@ package com.nashss.se.mctracker.activity.requests;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.nashss.se.mctracker.dependency.CustomListDeserializer;
+
 
 import java.util.List;
+import java.util.Set;
 
 @JsonDeserialize(builder = CreateGameLogRequest.Builder.class)
 public class CreateGameLogRequest {

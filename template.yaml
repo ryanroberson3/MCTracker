@@ -359,9 +359,7 @@ Resources:
           AttributeType: "S"
         - AttributeName: "gameId"
           AttributeType: "S"
-        - AttributeName: "heroes"
-          AttributeType: "S"
-        - AttributeName: "villain"
+        - AttributeName: "outcomeWL"
           AttributeType: "S"
       KeySchema:
         - AttributeName: "email"
@@ -370,19 +368,11 @@ Resources:
           KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
       GlobalSecondaryIndexes:
-        - IndexName: "TotalWLHeroIndex"
+        - IndexName: "TotalWLIndex"
           KeySchema:
             - AttributeName: "email"
               KeyType: "HASH"
-            - AttributeName: "heroes"
-              KeyType: "RANGE"
-          Projection:
-            ProjectionType: "ALL"
-        - IndexName: "TotalWLVillainIndex"
-          KeySchema:
-            - AttributeName: "email"
-              KeyType: "HASH"
-            - AttributeName: "villain"
+            - AttributeName: "outcomeWL"
               KeyType: "RANGE"
           Projection:
             ProjectionType: "ALL"
