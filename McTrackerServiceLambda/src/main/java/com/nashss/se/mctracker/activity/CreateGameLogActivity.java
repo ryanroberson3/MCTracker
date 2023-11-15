@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 
 public class CreateGameLogActivity {

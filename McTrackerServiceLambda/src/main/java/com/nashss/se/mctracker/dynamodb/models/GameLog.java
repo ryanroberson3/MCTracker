@@ -2,7 +2,9 @@ package com.nashss.se.mctracker.dynamodb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.nashss.se.mctracker.converters.LocalDateConverter;
+import com.nashss.se.mctracker.dependency.StringListDeserializer;
 
 
 import java.time.LocalDate;

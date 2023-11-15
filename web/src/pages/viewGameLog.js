@@ -47,7 +47,7 @@ class ViewGameLog extends BindingClass {
         console.log("Email : " + gameLog.email);
         document.getElementById('date').innerText = formatDateToMMDDYYYY(gameLog.date);
         document.getElementById('villain').innerText = gameLog.villan;
-        document.getElementById('outcome').innerText = gameLog.outcomeWL;
+        document.getElementById('outcomeWL').innerText = gameLog.outcomeWL;
         let heroListHtml = '';
         let heroList;
         for (heroList of gameLog.heroes) {
