@@ -8,7 +8,7 @@ export default class McTrackerClient extends BindingClass {
 
     constructor(props = {}) {
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog', 'viewGameLog'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;

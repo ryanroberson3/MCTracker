@@ -46,7 +46,7 @@ class ViewGameLog extends BindingClass {
         document.getElementById("email").innerText = gameLog.email;
         console.log("Email : " + gameLog.email);
         document.getElementById('date').innerText = formatDateToMMDDYYYY(gameLog.date);
-        document.getElementById('villain').innerText = gameLog.villan;
+        document.getElementById('villain').innerText = gameLog.villain;
         document.getElementById('outcomeWL').innerText = gameLog.outcomeWL;
         let heroListHtml = '';
         let heroList;
@@ -60,6 +60,33 @@ class ViewGameLog extends BindingClass {
             aspectListHtml += '<div class="aspect">' + aspectList + '</div>';
         }
         document.getElementById('aspect-list').innerHTML = aspectListHtml;
+    }
+
+    
+    redirectToUpdateGameLog() {
+        const gameLog = this.dataStore.get('gameLog');
+        if (gameLog != null) {
+            window.location.href = `/updateGameLog.html?id=${gameLog.gameId}`;
+        }
+    }
+
+
+    redirectToDeleteGameLog() {
+        const gameLog = this.dataStore.get('gameLog');
+        const deleteButton = document.getElementById('deleteGameLogButton');
+        const messageContainer = document.getElementById('messageContainer');
+        const deleteMessage = document.getElementById('message');
+
+        this.client.deleteGameLog(gameLog.gameId);
+
+        deleteButton.style.display = 'none';
+        messageContainer.style.display = 'block';
+
+        deleteMessage.textContent = 'GameLog has been deleted';
+
+        // setTimeout(() => {
+        //     window.location.href = `/reservationOptions.html`;
+        //   }, 3000); //3000 milli = 3 sec
     }
 }
 
