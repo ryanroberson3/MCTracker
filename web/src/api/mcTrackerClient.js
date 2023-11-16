@@ -8,7 +8,8 @@ export default class McTrackerClient extends BindingClass {
 
     constructor(props = {}) {
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog', 'viewGameLog'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog', 'viewGameLog',
+                                    'viewAllGameLogs'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -92,6 +93,22 @@ export default class McTrackerClient extends BindingClass {
             return response.data.gameLogModel;
         } catch (error) {
             console.error("Error in viewGameLog:", error);
+            this.handleError(error, errorCallback)
+        }
+    }
+
+
+    async viewAllGameLogs(errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only logged in users can view all their game logs");
+            const response = await this.axiosClient.get(`game_logs`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.gameLogList;
+        } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
