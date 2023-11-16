@@ -1,9 +1,6 @@
 package com.nashss.se.mctracker.dependency;
 
-import com.nashss.se.mctracker.activity.CreateGameLogActivity;
-import com.nashss.se.mctracker.activity.GetAllGameLogsActivity;
-import com.nashss.se.mctracker.activity.GetGameLogActivity;
-import com.nashss.se.mctracker.activity.GetPlayerCharactersActivity;
+import com.nashss.se.mctracker.activity.*;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -16,5 +13,5 @@ public interface ServiceComponent {
     GetPlayerCharactersActivity provideGetPlayerCharactersActivity();
     GetGameLogActivity provideGetGameLogActivity();
     GetAllGameLogsActivity provideGetAllGameLogsActivity();
-
+    UpdateGameLogActivity provideUpdateGameLogActivity();
 }
