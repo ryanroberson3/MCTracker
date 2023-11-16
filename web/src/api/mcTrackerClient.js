@@ -89,7 +89,7 @@ export default class McTrackerClient extends BindingClass {
                 }
             });
             console.log("Received response:", response);
-            return response.data.gameLog;
+            return response.data.gameLogModel;
         } catch (error) {
             console.error("Error in viewGameLog:", error);
             this.handleError(error, errorCallback)
