@@ -3,6 +3,7 @@ package com.nashss.se.mctracker.lambda;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +29,7 @@ public class LambdaResponse extends APIGatewayProxyResponseEvent {
      * @return A new LambdaResponse
      */
     public static LambdaResponse success(Object payload) {
+        MAPPER.registerModule(new JavaTimeModule());
         log.info("success");
         try {
             return new LambdaResponse(200, MAPPER.writeValueAsString(payload));
