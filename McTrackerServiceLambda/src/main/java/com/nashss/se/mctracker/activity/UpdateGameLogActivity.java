@@ -42,6 +42,7 @@ public class UpdateGameLogActivity {
         gameLog.setAspect(updatedAspect);
         gameLog.setHeroes(updatedHeroes);
         gameLog.setVillain(updatedVillain);
+        gameLog = gameLogDao.saveGameLog(gameLog);
 
         return UpdateGameLogResult.builder()
                 .withGameLog(new ModelConverter().toGameLogModel(gameLog))

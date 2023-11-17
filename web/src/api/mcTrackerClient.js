@@ -9,7 +9,7 @@ export default class McTrackerClient extends BindingClass {
     constructor(props = {}) {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog', 'viewGameLog',
-                                    'viewAllGameLogs'];
+                                    'viewAllGameLogs', 'updateGameLog'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -108,6 +108,28 @@ export default class McTrackerClient extends BindingClass {
                 }
             });
             return response.data.gameLogList;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+
+    async updateGameLog(gameId, date, outcomeWL, aspect, heroes, villain) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can update a game log");
+            const response = await this.axiosClient.put(`game_logs/${gameId}`, {
+                gameId: gameId,
+                date: date,
+                outcomeWL: outcomeWL,
+                aspect: aspect,
+                heroes: heroes,
+                villain: villain,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.gameLog;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
