@@ -27,6 +27,7 @@ module.exports = {
     index: path.resolve(__dirname, 'src', 'pages', 'index.js'),
     viewGameLog: path.resolve(__dirname, 'src', 'pages', 'viewGameLog.js'),
     viewAllGameLogs: path.resolve(__dirname, 'src', 'pages', 'viewAllGameLogs.js'),
+    updateGameLog: path.resolve(__dirname, 'src', 'pages', 'updateGameLog.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

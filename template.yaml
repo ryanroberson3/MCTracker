@@ -242,27 +242,25 @@ Resources:
 #            Auth:
 #              Authorizer: 'NONE'
 #
-#  SearchPlaylistsLambda:
-#    Type: AWS::Serverless::Function
-#    Properties:
-#      Role: !GetAtt AccessRole.Arn
-#      CodeUri: MusicPlaylistServiceLambda
-#      Handler: com.nashss.se.musicplaylistservice.lambda.SearchPlaylistsLambda::handleRequest
-#      Runtime: java11
-#      Architectures:
-#        - x86_64
-#      MemorySize: 512
-#      Environment:
-#        Variables:
-#          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
-#      Events:
-#        MusicPlaylistService:
-#          Type: Api
-#          Properties:
-#            Path: /playlists/search
-#            Method: get
-#            Auth:
-#              Authorizer: 'NONE'
+  UpdateGameLogLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: McTrackerServiceLambda
+      Handler: com.nashss.se.mctracker.lambda.UpdateGameLogLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        RiverPetSittingService:
+          Type: Api
+          Properties:
+            Path: /game_logs/{gameId}
+            Method: put
 #
   GetPlayerCharactersLambda:
     Type: AWS::Serverless::Function

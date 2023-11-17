@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="assets/updateGameLog.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="background">
+    <header class="header" id="header"></header>
+    <div class="card2">
+
+    </div>
+    <div class="card">
+    <h2>Update Game Log!</h2>
+
+            Current Date:  <a <h5 id="current-date"></h5> </a>
+        <p></p>
+            Current Outcome:  <a <h5 id="current-outcomeWL"></h5> </a>
+        <p></p>
+            Current Aspects:  <a <h5 id="current-aspect"></h5> </a>
+        <p></p>
+            Current Heroes:  <a <h5 id="current-heroes"></h5> </a>
+        <p></p>
+            Current Villain:    <a <h5 id="current-villain"></h5> </a>
+
+    <form class="card-content" id="update-gameLog-form">
+        <p class="hidden error" id="error-message"> </p>
+        <p class="form-field">
+            <label for="date">Update Date:</label>
+            <input type="date" required class="validated-field" id="date" name="date" >
+        </p>
+        <p class="form-field">
+            <label>Update Aspects:</label><br>
+        
+            <div class="custom-checkbox">
+                <input type="checkbox" name="aspect" value="Basic" id="aspect-basic">
+                <label for="aspect-basic">Basic</label>
+            </div>
+        
+            <div class="custom-checkbox">
+                <input type="checkbox" name="aspect" value="Justice" id="aspect-justice">
+                <label for="aspect-justice">Justice</label>
+            </div>
+        
+            <div class="custom-checkbox">
+                <input type="checkbox" name="aspect" value="Aggression" id="aspect-aggression">
+                <label for="aspect-aggression">Aggression</label>
+            </div>
+        
+            <div class="custom-checkbox">
+                <input type="checkbox" name="aspect" value="Protection" id="aspect-protection">
+                <label for="aspect-protection">Protection</label>
+            </div>
+        
+            <div class="custom-checkbox">
+                <input type="checkbox" name="aspect" value="Leadership" id="aspect-leadership">
+                <label for="aspect-leadership">Leadership</label>
+            </div>
+        
+            <div class="custom-checkbox">
+                <input type="checkbox" name="aspect" value="Pool" id="aspect-pool">
+                <label for="aspect-pool">Pool</label>
+            </div>
+        </p>
+        <p class="form-field">
+            <label>Update Outcome:</label><br>
+            <select name="outcomeWL" id="outcomeWL">
+                <option value=""></option>
+                <option value="Win">Win</option>
+                <option value="Lost by scheme">Lost by scheme</option>
+                <option value="Lost by damage">Lost by damage</option>
+            </select>
+        </p>
+        <p class="form-field">
+            <label>Update Villain:</label><br>
+            <select name="villain" id="villain">
+                <option value=""></option>
+                <option value="ultron">Ultron</option>
+                <option value="venom">Venom</option>
+            </select>
+        </p>
+        <p class="form-field" id="checkbox-container">
+            <label>Update Heroes:</label><br>
+            <div class="custom-checkbox">
+            <input type="checkbox" name="heroes" value="Gambit" id="gambit">
+            <label for="gambit">Gambit</label><br>
+            </div>
+            <div class="custom-checkbox">
+            <input type="checkbox" name="heroes" value="Rogue" id="rogue">
+            <label for="rogue">Rogue</label><br>
+            </div>
+            <div class="custom-checkbox">
+            <input type="checkbox" name="heroes" value="Iron Man" id="ironman">
+            <label for="ironman">Iron Man</label><br>
+            </div>
+            <div class="custom-checkbox">
+            <input type="checkbox" name="heroes" value="Hulk" id="hulk">
+            <label for="hulk">Hulk</label><br>
+            </div>
+        </p>
+            <a href="#" class="button" id="submit-btn">Submit</a>
+        </p>
+    </form>
+
+</div>
+</body>
+
+</html>
