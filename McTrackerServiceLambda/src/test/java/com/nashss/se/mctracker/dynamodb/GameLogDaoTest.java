@@ -90,4 +90,20 @@ public class GameLogDaoTest {
         verify(dynamoDBMapper, times(1)).query(eq(GameLog.class), queryCaptor.capture());
 
     }
+    @Test
+    public void deleteGameLog_withEmail_successfullyDeleted() {
+        String email = "test@gmail.com";
+        String gameId = "GAME123";
+        GameLog gameLog = new GameLog();
+        gameLog.setEmail(email);
+        gameLog.setGameId(gameId);
+
+        GameLog result = gameLogDao.saveGameLog(gameLog);
+
+        String delete = gameLogDao.deleteGameLog(email, gameId);
+
+        verify(dynamoDBMapper).save(gameLog);
+        verify(dynamoDBMapper).delete(gameLog);
+    }
+
 }

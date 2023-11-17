@@ -54,4 +54,17 @@ public class GameLogDao {
         return gameLogList;
     }
 
+
+    public String deleteGameLog(String email, String gameId) {
+        GameLog gameToDelete = new GameLog();
+
+        gameToDelete.setEmail(email);
+        gameToDelete.setGameId(gameId);
+
+        dynamoDBMapper.delete(gameToDelete);
+
+        metricsPublisher.addCount(MetricsConstants.DELETEGAMELOG_GAMENOTFOUND_COUNT, 0);
+        return String.format("GameLog, %s, successfully deleted", gameId);
+    }
+
 }
