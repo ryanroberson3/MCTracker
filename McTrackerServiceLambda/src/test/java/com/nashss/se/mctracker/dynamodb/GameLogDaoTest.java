@@ -98,9 +98,9 @@ public class GameLogDaoTest {
         gameLog.setEmail(email);
         gameLog.setGameId(gameId);
 
-        GameLog result = gameLogDao.saveGameLog(gameLog);
+        gameLogDao.saveGameLog(gameLog);
 
-        String delete = gameLogDao.deleteGameLog(email, gameId);
+        gameLogDao.deleteGameLog(email, gameId);
 
         verify(dynamoDBMapper).save(gameLog);
         verify(dynamoDBMapper).delete(gameLog);
