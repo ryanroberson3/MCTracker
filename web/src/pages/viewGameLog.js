@@ -84,9 +84,9 @@ class ViewGameLog extends BindingClass {
 
         deleteMessage.textContent = 'GameLog has been deleted';
 
-        // setTimeout(() => {
-        //     window.location.href = `/reservationOptions.html`;
-        //   }, 3000); //3000 milli = 3 sec
+        setTimeout(() => {
+            window.location.href = `/index.html`;
+          }, 3000); //3000 milli = 3 sec
     }
 }
 
