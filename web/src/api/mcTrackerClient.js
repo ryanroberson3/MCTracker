@@ -136,6 +136,22 @@ export default class McTrackerClient extends BindingClass {
     }
 
 
+    async deleteGameLog(id, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can delete a game log");
+            const response = await this.axiosClient.delete(`game_logs/${id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.deleteGameLog;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+
     handleError(error, errorCallback) {
         console.error(error);
 
