@@ -20,7 +20,7 @@ public class PlayerCharacter {
     public void setName(String name) {
         this.name = name;
     }
-    @DynamoDBRangeKey(attributeName = "role")
+    @DynamoDBRangeKey(attributeName = "characterRole")
     public String getRole() {
         return role;
     }
