@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script type="text/javascript" src="assets/createGameLog.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body class="background">
     <header class="header" id="header"></header>
     <div class="card2"></div>
@@ -14,36 +16,36 @@
             <p class="hidden error" id="error-message"></p>
             <p class="form-field">
                 <label for="date"> Date: </label>
-                <input type="date" required class="validated-field" id="date" name="date" >
+                <input type="date" required class="validated-field" id="date" name="date">
             </p>
             <p class="form-field">
                 <label>Choose Aspects:</label><br>
-            
+
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Basic" id="aspect-basic">
                     <label for="aspect-basic">Basic</label>
                 </div>
-            
+
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Justice" id="aspect-justice">
                     <label for="aspect-justice">Justice</label>
                 </div>
-            
+
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Aggression" id="aspect-aggression">
                     <label for="aspect-aggression">Aggression</label>
                 </div>
-            
+
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Protection" id="aspect-protection">
                     <label for="aspect-protection">Protection</label>
                 </div>
-            
+
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Leadership" id="aspect-leadership">
                     <label for="aspect-leadership">Leadership</label>
                 </div>
-            
+
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Pool" id="aspect-pool">
                     <label for="aspect-pool">Pool</label>
@@ -60,30 +62,11 @@
             </p>
             <p class="form-field">
                 <label>Choose Villain:</label><br>
-                <select name="villain" id="villain">
-                    <option value=""></option>
-                    <option value="ultron">Ultron</option>
-                    <option value="venom">Venom</option>
-                </select>
+                <select name="villainDropdown" id="villainDropdown"></select>
             </p>
             <p class="form-field" id="checkbox-container">
                 <label>Choose Heroes:</label><br>
-                <div class="custom-checkbox">
-                <input type="checkbox" name="heroes" value="Gambit" id="gambit">
-                <label for="gambit">Gambit</label><br>
-                </div>
-                <div class="custom-checkbox">
-                <input type="checkbox" name="heroes" value="Rogue" id="rogue">
-                <label for="rogue">Rogue</label><br>
-                </div>
-                <div class="custom-checkbox">
-                <input type="checkbox" name="heroes" value="Iron Man" id="ironman">
-                <label for="ironman">Iron Man</label><br>
-                </div>
-                <div class="custom-checkbox">
-                <input type="checkbox" name="heroes" value="Hulk" id="hulk">
-                <label for="hulk">Hulk</label><br>
-                </div>
+                <select name="heroDropdown" id="heroDropdown" multiple></select>
             </p>
 
             <p>
@@ -93,4 +76,5 @@
     </div>
 
 </body>
+
 </html>
