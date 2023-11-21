@@ -30,8 +30,30 @@ class CreateGameLog extends BindingClass {
         this.header.addHeaderToPage();
         this.client = new McTrackerClient();
         this.clientLoaded();
+
+        document.getElementById('addHero').addEventListener('click', this.addHero.bind(this));
     }
 
+    
+    addHero() {
+        const heroDropdown = document.getElementById('heroDropdown');
+        const selectedHeroesBox = document.getElementById('selectedHeroesBox');
+
+        // Get selected heroes from the dropdown
+        const selectedOptions = heroDropdown.selectedOptions;
+        const selectedHeroes = Array.from(selectedOptions).map(option => option.value);
+
+        // Clear the dropdown selection
+        heroDropdown.selectedIndex = -1;
+
+        // Display selected heroes in the box
+        selectedHeroes.forEach(hero => {
+            const heroItem = document.createElement('div');
+            heroItem.textContent = hero;
+            selectedHeroesBox.appendChild(heroItem);
+        });
+    }
+    
     async populateDropdown(dropdownId, characters) {
         const dropdown = document.getElementById(dropdownId);
         dropdown.innerHTML = "";
@@ -65,17 +87,13 @@ class CreateGameLog extends BindingClass {
         const villainDropdown = document.getElementById('villainDropdown');
         const villain = villainDropdown.value;
     
-        const heroDropdown = document.getElementById('heroDropdown');
-        const selectedHeroes = [];
-        const selectedOptions = heroDropdown.selectedOptions;
-        for (let i = 0; i < selectedOptions.length; i++) {
-            selectedHeroes.push(selectedOptions[i].value);
-        }
+        const selectedHeroesBox = document.getElementById('selectedHeroesBox');
+        const selectedHeroes = Array.from(selectedHeroesBox.children).map(heroItem => heroItem.textContent);
 
         if (selectedHeroes.length > 4) {
             // Handle the case where more than 4 heroes are selected (show an error, etc.)
             createButton.innerText = origButtonText;
-            errorMessageDisplay.innerText = 'Error: You can select up to 4 heroes.';
+            errorMessageDisplay.innerText = 'Error: You can only select up to 4 heroes.';
             errorMessageDisplay.classList.remove('hidden');
             return;
         }
