@@ -29,7 +29,7 @@ public class PlayerCharacterDao {
         valueMap.put(":role", new AttributeValue().withS(role));
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("role = :role")
+                .withFilterExpression("characterRole = :role")
                 .withExpressionAttributeValues(valueMap);
 
         PaginatedScanList<PlayerCharacter> characterNames = dynamoDbMapper.scan(PlayerCharacter.class, scanExpression);
@@ -43,5 +43,5 @@ public class PlayerCharacterDao {
 
         return roleList;
     }
-    }
+}
 

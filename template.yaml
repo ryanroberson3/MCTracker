@@ -381,12 +381,12 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "name"
           AttributeType: "S"
-        - AttributeName: "role"
+        - AttributeName: "characterRole"
           AttributeType: "S"
       KeySchema:
         - AttributeName: "name"
           KeyType: "HASH"
-        - AttributeName: "role"
+        - AttributeName: "characterRole"
           KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
 

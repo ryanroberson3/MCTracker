@@ -8,7 +8,7 @@ import { formatDateToMMDDYYYY } from '../util/dateUtils';
 class UpdateGameLog extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'clientLoaded', 'submit', 'redirectToViewGameLog', 'viewGameLog'], this);
+        this.bindClassMethods(['mount', 'clientLoaded', 'populateDropdown', 'submit', 'redirectToViewGameLog', 'viewGameLog'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewGameLog);
         this.dataStore.addChangeListener(this.viewGameLog);
@@ -21,6 +21,15 @@ class UpdateGameLog extends BindingClass {
 
         const originalGameLog = await this.client.viewGameLog(gameId);
         this.dataStore.set('originalGameLog', originalGameLog);
+
+        const villains = await this.client.getCharactersByRole("Villain");
+        this.dataStore.set('villains', villains);
+
+        const heroes = await this.client.getCharactersByRole("Hero");
+        this.dataStore.set('heroes', heroes);
+
+        this.populateDropdown('villainDropdown', villains);
+        this.populateDropdown('heroDropdown', heroes);
     }
 
 
@@ -29,8 +38,40 @@ class UpdateGameLog extends BindingClass {
         this.client = new McTrackerClient();
         this.clientLoaded();
         document.getElementById('submit-btn').addEventListener('click', this.submit);
+
+        document.getElementById('addHero').addEventListener('click', this.addHero.bind(this));
     }
 
+    addHero() {
+        const heroDropdown = document.getElementById('heroDropdown');
+        const selectedHeroesBox = document.getElementById('selectedHeroesBox');
+
+        // Get selected heroes from the dropdown
+        const selectedOptions = heroDropdown.selectedOptions;
+        const selectedHeroes = Array.from(selectedOptions).map(option => option.value);
+
+        // Clear the dropdown selection
+        heroDropdown.selectedIndex = -1;
+
+        // Display selected heroes in the box
+        selectedHeroes.forEach(hero => {
+            const heroItem = document.createElement('div');
+            heroItem.textContent = hero;
+            selectedHeroesBox.appendChild(heroItem);
+        });
+    }
+
+    async populateDropdown(dropdownId, characters) {
+        const dropdown = document.getElementById(dropdownId);
+        dropdown.innerHTML = "";
+
+        characters.forEach(character => {
+            const option = document.createElement('option');
+            option.value = character;
+            option.text = character;
+            dropdown.appendChild(option);
+        });
+    }
 
     async submit(evt) {
         evt.preventDefault();
@@ -48,16 +89,26 @@ class UpdateGameLog extends BindingClass {
         const outcomeWL = document.getElementById('outcomeWL').value;
         const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
         const aspect = Array.from(aspectCheckboxes).map(checkbox => checkbox.value);
-        const heroesCheckboxes = document.querySelectorAll('input[name="heroes"]:checked');
-        const heroes = Array.from(heroesCheckboxes).map(checkbox => checkbox.value);
-        const villain = document.getElementById('villain').value;
+
+        const villainDropdown = document.getElementById('villainDropdown');
+        const villain = villainDropdown.value;
+    
+        const selectedHeroesBox = document.getElementById('selectedHeroesBox');
+        const selectedHeroes = Array.from(selectedHeroesBox.children).map(heroItem => heroItem.textContent);
+
+        if (selectedHeroes.length > 4) {
+            createButton.innerText = origButtonText;
+            errorMessageDisplay.innerText = 'Error: You can only select up to 4 heroes.';
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+        }
 
         const gameLog = await this.client.updateGameLog(
             gameId,
             date,
             outcomeWL,
             aspect,
-            heroes,
+            selectedHeroes,
             villain,
             (error) => {
                 updateButton.innerText = originalButton;

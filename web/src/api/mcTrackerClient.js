@@ -9,7 +9,7 @@ export default class McTrackerClient extends BindingClass {
     constructor(props = {}) {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog', 'viewGameLog',
-                                    'viewAllGameLogs', 'updateGameLog'];
+                                    'viewAllGameLogs', 'updateGameLog', 'getCharactersByRole'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -58,7 +58,20 @@ export default class McTrackerClient extends BindingClass {
         return await this.authenticator.getUserToken();
     }
 
-
+    async getCharactersByRole(role) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can get characters");
+            const response = await this.axiosClient.get(`player_characters?role=${role}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.playerCharacters;
+        } catch (error) {
+            this.handleError(error);
+            return [];
+        }
+    }
 
     async createGameLog(date, aspect, outcomeWL, villain, heroes, errorCallback) {
         try {
