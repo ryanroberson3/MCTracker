@@ -1,0 +1,811 @@
+{
+  "player_characters": [
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Adam Warlock"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ant-Man"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Black Panther"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Black Widow"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Cable"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Captain America"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Captain Marvel"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Colossus"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Cyclops"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Doctor Strange"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Domino"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Drax"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Gamora"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ghost-Spider"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },,,
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Groot"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Hawkeye"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Hulk"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ironheart"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Iron Man"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ms. Marvel"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Nebula"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Gambit"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Nova"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Phoenix"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Quicksilver"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Rocket Raccoon"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Rogue"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Scarlet Witch"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Shadowcat"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "She-Hulk"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "SP//DR"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spectrum"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spider-Ham"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spider-Man (Miles Morales)"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spider-Man (Peter Parker)"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spider-Woman"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Star-Lord"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Storm"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Thor"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Valkyrie"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Venom"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Vision"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "War Machine"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Wasp"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Wolverine"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Deadpool"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Psylocke"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Angel"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "X-23"},
+          "characterRole": { "S": "Hero"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Absorbing Man"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mansion Attack (Avalanche, Pyro, Blob & Toad)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Collector (Escape the Museum)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Collector (Infiltrate the Museum)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Crossbones"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Drang"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Green Goblin (Mutagen Formula)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Green Goblin (Risky Business)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Klaw"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Magneto"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Master Mold"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mysterio"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Nebula"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Red Skull"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Rhino"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ronan"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sabretooth"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sandman"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sentinels"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Taskmaster"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sinister Six"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ultron"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Venom"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Venom Goblin"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mojo"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "MaGog"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spiral"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Loki"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Hela"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Thanos"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ebony Maw"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Tower Defense (Corvus Glave & Proxima Midnight)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Zola"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Kang"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Juggernaut"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Marauders (On the Run)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Marauders (Morlock Siege)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mister Sinister"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Stryfe"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "The Hood"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Wrecking Crew"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    }
+  ]
+}
