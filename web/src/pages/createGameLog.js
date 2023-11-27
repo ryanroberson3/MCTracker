@@ -8,7 +8,7 @@ class CreateGameLog extends BindingClass {
 
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'populateDropdown', 'mount', 'submit', 'redirectToViewGameLog'], this);
+        this.bindClassMethods(['clientLoaded', 'populateDropdown', 'mount', 'submit', 'redirectToViewGameLog', 'addHero'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewGameLog);
         this.header = new Header(this.dataStore);
