@@ -1,0 +1,124 @@
+{
+  "player_characters": [
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Spiral"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Loki"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Hela"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Thanos"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ebony Maw"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Tower Defense (Corvus Glave & Proxima Midnight)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Zola"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Kang"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Juggernaut"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Marauders (On the Run)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Marauders (Morlock Siege)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mister Sinister"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Stryfe"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "The Hood"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Wrecking Crew"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    }
+  ]
+}

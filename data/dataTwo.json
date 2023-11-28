@@ -3,7 +3,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Adam Warlock"},
+          "name": { "S": "Rocket Raccoon"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -11,7 +11,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Ant-Man"},
+          "name": { "S": "Rogue"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -19,7 +19,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Black Panther"},
+          "name": { "S": "Scarlet Witch"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -27,7 +27,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Black Widow"},
+          "name": { "S": "Shadowcat"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -35,7 +35,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Cable"},
+          "name": { "S": "She-Hulk"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -43,7 +43,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Captain America"},
+          "name": { "S": "SP//DR"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -51,7 +51,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Captain Marvel"},
+          "name": { "S": "Spectrum"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -59,7 +59,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Colossus"},
+          "name": { "S": "Spider-Ham"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -67,7 +67,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Cyclops"},
+          "name": { "S": "Spider-Man (Miles Morales)"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -75,7 +75,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Doctor Strange"},
+          "name": { "S": "Spider-Man (Peter Parker)"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -83,7 +83,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Domino"},
+          "name": { "S": "Spider-Woman"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -91,7 +91,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Drax"},
+          "name": { "S": "Star-Lord"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -99,7 +99,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Gamora"},
+          "name": { "S": "Storm"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -107,7 +107,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Ghost-Spider"},
+          "name": { "S": "Thor"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -115,7 +115,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Groot"},
+          "name": { "S": "Valkyrie"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -123,7 +123,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Hawkeye"},
+          "name": { "S": "Venom"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -131,7 +131,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Hulk"},
+          "name": { "S": "Vision"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -139,7 +139,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Ironheart"},
+          "name": { "S": "War Machine"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -147,7 +147,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Iron Man"},
+          "name": { "S": "Wasp"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -155,7 +155,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Ms. Marvel"},
+          "name": { "S": "Wolverine"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -163,7 +163,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Nebula"},
+          "name": { "S": "Deadpool"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -171,7 +171,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Gambit"},
+          "name": { "S": "Psylocke"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -179,7 +179,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Nova"},
+          "name": { "S": "Angel"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -187,7 +187,7 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Phoenix"},
+          "name": { "S": "X-23"},
           "characterRole": { "S": "Hero"}
         }
       }
@@ -195,8 +195,8 @@
     {
       "PutRequest": {
         "Item": {
-          "name": { "S": "Quicksilver"},
-          "characterRole": { "S": "Hero"}
+          "name": { "S": "Absorbing Man"},
+          "characterRole": { "S": "Villain"}
         }
       }
     }

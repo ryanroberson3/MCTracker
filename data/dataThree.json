@@ -1,0 +1,204 @@
+{
+  "player_characters": [
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mansion Attack (Avalanche, Pyro, Blob & Toad)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Collector (Escape the Museum)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Collector (Infiltrate the Museum)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Crossbones"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Drang"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Green Goblin (Mutagen Formula)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Green Goblin (Risky Business)"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Klaw"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Magneto"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Master Mold"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mysterio"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Nebula"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Red Skull"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Rhino"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ronan"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sabretooth"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sandman"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sentinels"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Taskmaster"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Sinister Six"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Ultron"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Venom"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Venom Goblin"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "Mojo"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "name": { "S": "MaGog"},
+          "characterRole": { "S": "Villain"}
+        }
+      }
+    }
+  ]
+}
