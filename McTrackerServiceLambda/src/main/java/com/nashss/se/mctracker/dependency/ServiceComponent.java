@@ -15,4 +15,5 @@ public interface ServiceComponent {
     GetAllGameLogsActivity provideGetAllGameLogsActivity();
     UpdateGameLogActivity provideUpdateGameLogActivity();
     DeleteGameLogActivity provideDeleteGameLogActivity();
+    ViewAllStatsActivity provideViewAllStatsActivity();
 }
