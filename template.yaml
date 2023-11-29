@@ -361,7 +361,7 @@ Resources:
         RiverPetSittingService:
           Type: Api
           Properties:
-            Path: /game_logs
+            Path: /stats
             Method: get
   #-----------------------------------------------------
   # DynamoDB Configuration
