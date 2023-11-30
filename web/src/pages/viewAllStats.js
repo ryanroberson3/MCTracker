@@ -26,8 +26,43 @@ class ViewAllStats extends BindingClass {
 
     addStats() {
         const stats = this.dataStore.get('stats');
+        document.getElementById('winStat').innerText = stats.winStat;
+        document.getElementById('lostToSchemeStat').innerText = stats.lostBySchemeStat;
+        document.getElementById('lostToDamageStat').innerText = stats.lostByDamageStat;
 
-        
+        document.getElementById('winStat').style.display = 'none';
+        document.getElementById('lostToSchemeStat').style.display = 'none';
+        document.getElementById('lostToDamageStat').style.display = 'none';
+
+        var xValues = ["Win", "Lost by scheme", "Lost by damage"];
+        var yValues = [stats.winStat.toFixed(1), stats.lostBySchemeStat.toFixed(1), stats.lostByDamageStat.toFixed(1)];
+        var barColors = ["#1AABF3", "#F0F306", "#E31507"];
+
+
+        new Chart("myChart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Stats are shown in percentages: Hover to see!",
+                    fontSize: 25
+                },
+                legend: {
+                    display: true,
+                    position: 'right',
+                    labels: {
+                        fontSize: 20
+                    }
+                }
+            }
+        });
     }
 }
 

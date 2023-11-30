@@ -174,7 +174,15 @@ export default class McTrackerClient extends BindingClass {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data.outcomes;
+            const { outcomes, winStat, lostBySchemeStat, lostByDamageStat } = response.data;
+
+            console.log('Outcomes:', outcomes);
+            console.log('Win Stat:', winStat);
+            console.log('Lost by Scheme Stat:', lostBySchemeStat);
+            console.log('Lost by Damage Stat:', lostByDamageStat);
+
+            return { outcomes, winStat, lostBySchemeStat, lostByDamageStat };
+        
         } catch (error) {
             this.handleError(error, errorCallback)
         }

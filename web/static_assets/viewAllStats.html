@@ -1,49 +1,28 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <script type="text/javascript" src="assets/viewAllStats.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
 <body class="background">
     <header class="header" id="header"></header>
 
-    <canvas id="myChart" style="width:200%;max-width:1000px"></canvas>
+    <div id="winStat"></div>
+    <div id="lostToSchemeStat"></div>
+    <div id="lostToDamageStat"></div>
+
+    <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script type="text/javascript" src="assets/viewAllStats.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script>
-    var xValues = ["Win", "Lost by scheme", "Lost by damage"];
-    var yValues = [55, 49, 44];
-    var barColors = [
-    "#1AABF3",
-    "#F0F306",
-    "#E31507"
-    ];
-
-    new Chart("myChart", {
-    type: "pie",
-    data: {
-        labels: xValues,
-        datasets: [{
-        backgroundColor: barColors,
-        data: yValues
-        }]
-    },
-    options: {
-        title: {
-        display: true,
-        text: "My Stats"
-        }
-    }
+        window.addEventListener('load', function () {
+        const stats = new ViewAllStats();
+        stats.addStats();
     });
-
     </script>
 
     <p>
         <a href="index.html" class="button2">Home</a>
     </p>
-
 </body>
 </html>

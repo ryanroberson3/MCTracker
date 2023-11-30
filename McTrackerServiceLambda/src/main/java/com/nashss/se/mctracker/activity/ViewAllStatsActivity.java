@@ -27,12 +27,15 @@ public class ViewAllStatsActivity {
         int lostBySchemeCounter = Collections.frequency(outcomes, "Lost by scheme");
         int lostByDamageCounter = Collections.frequency(outcomes, "Lost by damage");
 
-        double winPercentage = (double) winCounter / outcomes.size();
-        double lostBySchemePercentage = (double) lostBySchemeCounter / outcomes.size();
-        double lostByDamagePercentage = (double) lostByDamageCounter / outcomes.size();
+        double winPercentage = ((double) winCounter / outcomes.size()) * 100;
+        double lostBySchemePercentage = ((double) lostBySchemeCounter / outcomes.size()) * 100;
+        double lostByDamagePercentage = ((double) lostByDamageCounter / outcomes.size()) * 100;
 
         return ViewAllStatsResult.builder()
                 .withOutcomes(outcomes)
+                .withWinStat(winPercentage)
+                .withLostBySchemeStat(lostBySchemePercentage)
+                .withLostByDamageStat(lostByDamagePercentage)
                 .build();
     }
 
