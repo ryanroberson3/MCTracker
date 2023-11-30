@@ -2,6 +2,8 @@ package com.nashss.se.mctracker.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.nashss.se.mctracker.dynamodb.models.GameLog;
 import com.nashss.se.mctracker.exceptions.GameNotFoundException;
 import com.nashss.se.mctracker.metrics.MetricsConstants;
@@ -9,7 +11,10 @@ import com.nashss.se.mctracker.metrics.MetricsPublisher;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Singleton
 public class GameLogDao {
@@ -66,5 +71,23 @@ public class GameLogDao {
         metricsPublisher.addCount(MetricsConstants.DELETEGAMELOG_GAMENOTFOUND_COUNT, 0);
         return String.format("GameLog, %s, successfully deleted", gameId);
     }
+
+    public List<String> viewAllStats(String email) {
+        Map<String, AttributeValue> map = new HashMap<>();
+        map.put(":email", new AttributeValue().withS(email));
+
+        DynamoDBQueryExpression<GameLog> query = new DynamoDBQueryExpression<GameLog>()
+                .withIndexName("TotalWLIndex")
+                .withConsistentRead(false)
+                .withKeyConditionExpression("email = :email")
+                .withExpressionAttributeValues(map);
+
+        PaginatedQueryList<GameLog> outcomes = dynamoDBMapper.query(GameLog.class, query);
+
+        return outcomes.stream()
+                .map(GameLog::getOutcomeWL)
+                .collect(Collectors.toList());
+    }
+
 
 }

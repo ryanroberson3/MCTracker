@@ -9,7 +9,7 @@ export default class McTrackerClient extends BindingClass {
     constructor(props = {}) {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout','createGameLog', 'viewGameLog',
-                                    'viewAllGameLogs', 'updateGameLog', 'getCharactersByRole'];
+                                    'viewAllGameLogs', 'updateGameLog', 'getCharactersByRole', 'viewAllStats'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -159,6 +159,30 @@ export default class McTrackerClient extends BindingClass {
                 }
             });
             return response.data.deleteGameLog;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+
+    async viewAllStats(errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can view stats");
+            const response = await this.axiosClient.get(`stats`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const { outcomes, winStat, lostBySchemeStat, lostByDamageStat } = response.data;
+
+            console.log('Outcomes:', outcomes);
+            console.log('Win Stat:', winStat);
+            console.log('Lost by Scheme Stat:', lostBySchemeStat);
+            console.log('Lost by Damage Stat:', lostByDamageStat);
+
+            return { outcomes, winStat, lostBySchemeStat, lostByDamageStat };
+        
         } catch (error) {
             this.handleError(error, errorCallback)
         }

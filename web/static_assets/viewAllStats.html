@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body class="background">
+    <header class="header" id="header"></header>
+
+    <div id="winStat"></div>
+    <div id="lostToSchemeStat"></div>
+    <div id="lostToDamageStat"></div>
+
+    <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script type="text/javascript" src="assets/viewAllStats.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script>
+        window.addEventListener('load', function () {
+        const stats = new ViewAllStats();
+        stats.addStats();
+    });
+    </script>
+
+    <p>
+        <a href="index.html" class="button2">Home</a>
+    </p>
+</body>
+</html>
