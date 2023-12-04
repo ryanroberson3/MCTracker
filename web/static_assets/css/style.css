@@ -1,13 +1,16 @@
 :root {
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
-    --primary-color: #5D5E5E;
-    --secondary-color: #ffffff;
-    --tertiary-color: #F5881F;
+    --primary-color: #f8f7f7;
+    --secondary-color: #3c1ff5;
+    --tertiary-color: hsl(0, 96%, 42%);
     --error-color: #EE3A23;
 }
 
 .background {
+    background-image: url(https://wallpapercave.com/wp/wp6042036.jpg);
     background-color: #8A8C8F;
+    background-position: center; 
+    background-size: auto;
     margin: 0;
     counter-reset: section;
     font-family: "Helvetica Neue",Helvetica,sans-serif;
@@ -18,13 +21,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(rgba(var(--primary-color), .5));
+    color: var(--primary-color);
     padding: 4px 20px;
 }
 
 .button {
-  background-color: var(--tertiary-color);
+  background-color: var(--primary-color);;
   border: none;
   color: var(--secondary-color);
   padding: 6px 8px 4px 8px;
@@ -32,10 +35,15 @@
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+  border-radius: 12px;
+}
+
+.button:hover {
+    background-color: black;
 }
 
 .button1 {
-    background-color: var(--error-color);
+    background-color: var(--primary-color);
     border: none;
     color: var(--secondary-color);
     padding: 10px 12px 8px 12px;
@@ -47,7 +55,11 @@
     border-radius: 12px;
     font-size: 18px;
   }
-  .button2 {
+
+  .button1:hover {
+    background-color: var(--tertiary-color);
+  }
+  /* .button2 {
     background-color: var(--tertiary-color);
     border: none;
     color: var(--secondary-color);
@@ -61,9 +73,65 @@
     font-size: 20px;
     width: 40%
     
-  }
+  } */
+  .button2 {
+    background-color: rgb(158, 11, 11); 
+    border: none;
+    border-radius: 12px;
+    color: white; 
+    padding: 10px 12px; 
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 12px;
+    font-size: 20px;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px auto; 
+    transition-duration: 0.4s;
+}
+
+.button2:hover {
+    background-color: var(--secondary-color);
+}
+
+.button3 {
+    background-color: var(--secondary-color); 
+    border: none;
+    color: white; 
+    padding: 10px 12px; 
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 12px;
+    font-size: 20px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px auto; 
+}
+
+.button3:hover {
+    background-color: var(--tertiary-color);
+}
 
 .button-group {
+    display: grid;
+    justify-content: space-between;
+}
+
+.button-group2 {
     display: flex;
     justify-content: space-between;
 }
@@ -78,9 +146,11 @@
 
 .card {
     color: var(--primary-color);
-    background-color: var(--secondary-color);
+    background-color: rgba(var(--secondary-color), 0.5);
     margin: 20px;
     padding: 10px 20px;
+    gap: 10px
+
 }
 
 .error {
@@ -166,4 +236,32 @@ th {
 a {
     color: var(--tertiary-color);
     text-decoration: none;
+}
+
+.info-section {
+    margin-top: 20px;
+}
+
+.info-row {
+    display: grid;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-label {
+    color:hsl(0, 96%, 42%);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.align-right {
+    text-align: right;  /* Align the content to the right */
+}
+
+.align-right p {
+    margin-bottom: 10px; /* Add bottom margin between paragraphs */
+}
+
+.align-right h5 {
+    margin: 0; /* Remove default margin for h5 elements */
 }

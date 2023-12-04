@@ -58,6 +58,11 @@ class CreateGameLog extends BindingClass {
         const dropdown = document.getElementById(dropdownId);
         dropdown.innerHTML = "";
 
+        const emptyOption = document.createElement('option');
+        emptyOption.value = '';
+        emptyOption.text = ' '; // Use a space or any other character for the label
+        dropdown.appendChild(emptyOption);
+
         characters.forEach(character => {
             const option = document.createElement('option');
             option.value = character;

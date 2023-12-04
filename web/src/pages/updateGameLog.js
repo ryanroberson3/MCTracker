@@ -3,6 +3,8 @@ import Header from '../components/header';
 import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 import { formatDateToMMDDYYYY } from '../util/dateUtils';
+import { parseDateFromMMDDYYYY } from '../util/dateUtils';
+
 
 
 class UpdateGameLog extends BindingClass {
@@ -65,6 +67,11 @@ class UpdateGameLog extends BindingClass {
         const dropdown = document.getElementById(dropdownId);
         dropdown.innerHTML = "";
 
+        const emptyOption = document.createElement('option');
+        emptyOption.value = '';
+        emptyOption.text = ' '; // Use a space or any other character for the label
+        dropdown.appendChild(emptyOption);
+
         characters.forEach(character => {
             const option = document.createElement('option');
             option.value = character;
@@ -74,6 +81,15 @@ class UpdateGameLog extends BindingClass {
     }
 
     async submit(evt) {
+        const origGameLog = this.dataStore.get('originalGameLog');
+        const origDate = parseDateFromMMDDYYYY(origGameLog.date);
+        const origOutcomeWL = origGameLog.outcomeWL;
+        const origAspects = origGameLog.aspect;
+        const origHeroes = origGameLog.heroes;
+        const origVillain = origGameLog.villain;
+
+
+
         evt.preventDefault();
         const errorMessageDisplay = document.getElementById('error-message');
         errorMessageDisplay.innerText = ``;
@@ -85,16 +101,32 @@ class UpdateGameLog extends BindingClass {
 
         const urlParams = new URLSearchParams(window.location.search);
         const gameId = urlParams.get('id');
-        const date = document.getElementById('date').value;
-        const outcomeWL = document.getElementById('outcomeWL').value;
-        const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
-        const aspect = Array.from(aspectCheckboxes).map(checkbox => checkbox.value);
+        let date = document.getElementById('date').value;
+        if (!date) {
+            date = formatDateToMMDDYYYY(origDate);
+        }
+        let outcomeWL = document.getElementById('outcomeWL').value;
+        if (!outcomeWL) {
+            outcomeWL = origOutcomeWL;
+        }
+        let aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
+        let aspect = Array.from(aspectCheckboxes).map(checkbox => checkbox.value);
+        if (aspectCheckboxes.length === 0) {
+            aspectCheckboxes = origAspects;
+            aspect = aspectCheckboxes;
+        }
 
         const villainDropdown = document.getElementById('villainDropdown');
-        const villain = villainDropdown.value;
+        let villain = villainDropdown.value;
+        if (!villain) {
+            villain = origVillain;
+        }
     
         const selectedHeroesBox = document.getElementById('selectedHeroesBox');
-        const selectedHeroes = Array.from(selectedHeroesBox.children).map(heroItem => heroItem.textContent);
+        let selectedHeroes = Array.from(selectedHeroesBox.children).map(heroItem => heroItem.textContent);
+        if (selectedHeroes.length === 0) {
+            selectedHeroes = origHeroes;
+        }
 
         if (selectedHeroes.length > 4) {
             createButton.innerText = origButtonText;

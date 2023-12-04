@@ -16,8 +16,36 @@ export function formatDateToMMDDYYYY(dateArray) {
     const formattedDay = day.toString().padStart(2, '0');
   
     // Format the date as "MM-DD-YYYY"
-    const formattedDate = `${formattedMonth}-${formattedDay}-${year}`;
+    // const formattedDate = `${formattedMonth}-${formattedDay}-${year}`;
+    const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
   
     return formattedDate;
   }
   
+
+  // Parse the date from MM-DD-YYYY format
+// Parse the date from MM-DD-YYYY format
+// Parse the date from MM-DD-YYYY format
+export function parseDateFromMMDDYYYY(dateStringOrArray) {
+  console.log('Received input:', dateStringOrArray);
+
+  if (Array.isArray(dateStringOrArray)) {
+      // If it's already an array, return it
+      return dateStringOrArray;
+  }
+
+  if (typeof dateStringOrArray !== 'string') {
+      throw new Error('Invalid date format: Input is neither a string nor an array');
+  }
+
+  const dateParts = dateStringOrArray.split('-').map(Number);
+
+  // Check if the parsed values are valid
+  if (dateParts.some(isNaN)) {
+      throw new Error('Invalid date format: Cannot parse parts of the date');
+  }
+
+  return dateParts;
+}
+
+
