@@ -52,7 +52,6 @@ class ViewAllStats extends BindingClass {
                 title: {
                     display: true,
                     position: 'bottom',
-                    text: "Stats are shown in percentages: Hover to see!                    Click on the outcomes to interact with the chart!",
                     fontSize: 20,
                     fontColor: "#FFFFFF"
                 },

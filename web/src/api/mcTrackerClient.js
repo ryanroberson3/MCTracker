@@ -127,7 +127,7 @@ export default class McTrackerClient extends BindingClass {
     }
 
 
-    async updateGameLog(gameId, date, outcomeWL, aspect, heroes, villain) {
+    async updateGameLog(gameId, date, outcomeWL, aspect, heroes, villain, errorCallback) {
         try {
             const token = await this.getTokenOrThrow("Only authenticated users can update a game log");
             const response = await this.axiosClient.put(`game_logs/${gameId}`, {

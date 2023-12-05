@@ -6,6 +6,7 @@ import com.nashss.se.mctracker.converters.LocalDateConverter;
 import com.nashss.se.mctracker.converters.ModelConverter;
 import com.nashss.se.mctracker.dynamodb.GameLogDao;
 import com.nashss.se.mctracker.dynamodb.models.GameLog;
+import com.nashss.se.mctracker.exceptions.DateAfterTodayException;
 import com.nashss.se.mctracker.metrics.MetricsPublisher;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,6 +37,10 @@ public class UpdateGameLogActivity {
         List<String> updatedAspect = updateGameLogRequest.getAspect();
         List<String> updatedHeroes = updateGameLogRequest.getHeroes();
         String updatedVillain = updateGameLogRequest.getVillain();
+
+        if (updatedDate.isAfter(LocalDate.now())) {
+            throw new DateAfterTodayException("You can't update a GameLog that hasn't happened yet! Change the date.");
+        }
 
         gameLog.setDate(updatedDate);
         gameLog.setOutcomeWL(updatedOutcomeWL);
