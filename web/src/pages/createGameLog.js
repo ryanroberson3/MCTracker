@@ -122,6 +122,7 @@ class CreateGameLog extends BindingClass {
             errorMessageDisplay.classList.remove('hidden');
             return;
         }
+
     
         const gameLog = await this.client.createGameLog(date, aspect, outcomeWL, villain, selectedHeroes, (error) => {
             createButton.innerText = origButtonText;

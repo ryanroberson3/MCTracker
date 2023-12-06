@@ -1,13 +1,14 @@
 :root {
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
-    --primary-color: #f8f7f7;
-    --secondary-color: #3c1ff5;
-    --tertiary-color: hsl(0, 96%, 42%);
+    --primary-color: #fdfcfc;
+    --secondary-color: #2200ff;
+    --tertiary-color: hsl(0, 98%, 48%);
     --error-color: #EE3A23;
 }
 
 .background {
-    background-image: url(https://wallpapercave.com/wp/wp6042036.jpg);
+    /* background-image: url(https://wallpapercave.com/wp/wp6042036.jpg); */
+    background-image: url(https://i.pinimg.com/originals/69/cd/c2/69cdc213474548621280786a752469f5.jpg);
     background-color: #8A8C8F;
     background-position: center; 
     background-size: auto;
@@ -15,6 +16,7 @@
     counter-reset: section;
     font-family: "Helvetica Neue",Helvetica,sans-serif;
 }
+
 
 .header {
     /* Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
@@ -59,42 +61,19 @@
   .button1:hover {
     background-color: var(--tertiary-color);
   }
-  /* .button2 {
-    background-color: var(--tertiary-color);
-    border: none;
-    color: var(--secondary-color);
-    padding: 10px 12px 8px 12px;
+
+.button2 {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fdfcfc;
+    font-size: 16px;
     text-align: center;
-    font-weight: bold;
     text-decoration: none;
-    cursor: pointer;
-    opacity: 0.9;
-    border-radius: 12px;
-    font-size: 20px;
-    width: 40%
-    
-  } */
-  .button2 {
-    background-color: rgb(158, 11, 11); 
+    outline: none;
     border: none;
-    border-radius: 12px;
-    color: white; 
-    padding: 10px 12px; 
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
+    border-radius: 50%; 
     cursor: pointer;
-    opacity: 0.9;
-    border-radius: 12px;
-    font-size: 20px;
-    width: 400px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    margin: 20px auto; 
-    transition-duration: 0.4s;
+    transition: background-color 0.3s;
 }
 
 .button2:hover {
@@ -126,6 +105,24 @@
     background-color: var(--tertiary-color);
 }
 
+.button4 {
+    display: inline-block;
+    padding: 35px 45px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button4:hover {
+    background-color: var(--secondary-color);
+}
+
+
 .button-group {
     display: grid;
     justify-content: space-between;
@@ -149,8 +146,20 @@
     background-color: rgba(var(--secondary-color), 0.5);
     margin: 20px;
     padding: 10px 20px;
-    gap: 10px
+    gap: 10px;
+    text-align: center;
+}
 
+.card2 {
+    height: 150px;
+}
+
+.card3 {
+    color: var(--primary-color);
+    background-color: rgba(var(--secondary-color), 0.5);
+    margin: 20px;
+    padding: 10px 20px;
+    gap: 10px;
 }
 
 .error {
@@ -175,21 +184,6 @@
     flex-direction: column;
 }
 
-.tags {
-    display: flex;
-    flex-direction: row;
-}
-
-.tag {
-    font-size: 12px;
-    margin: 0 10px;
-    padding: 4px 8px;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    position: relative;
-    border-radius: 16px;
-}
-
 .custom-checkbox {
     display: flex;
     align-items: center;
@@ -199,24 +193,12 @@
   .custom-checkbox input[type="checkbox"] {
     margin-right: 8px;
   }
-  
-  /* Additional styling for checked checkboxes */
+
   .custom-checkbox input[type="checkbox"]:checked + label {
     text-decoration: none;
     color: var(--tertiary-color);
   }
 
-/*
-Flexbox on a lists removes the numbers. We use a counter here to add them back.
-https://stackoverflow.com/a/34316093
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
-*/
-.song:before {
-    counter-increment: section;
-    content: counter(section) ".";
-    position: absolute;
-    margin-left: -40px;
-}
 
 .hidden {
     display: none;
@@ -240,12 +222,14 @@ a {
 
 .info-section {
     margin-top: 20px;
+    margin-left: 40px;
 }
 
 .info-row {
     display: grid;
     justify-content: space-between;
     margin-bottom: 10px;
+    color:#fdfcfc
 }
 
 .info-label {
@@ -280,7 +264,7 @@ body {
 }
 
 .chart-description {
-    color: #FFFFFF;
+    color: var(--primary-color);
     font-size: 25px;
     text-align: center;
 }
@@ -298,7 +282,8 @@ body {
 
 
 #addHero {
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     padding: 9px;
@@ -306,7 +291,6 @@ body {
     border-radius: 3px;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -320,13 +304,19 @@ body {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-image: url(https://i.pinimg.com/originals/d2/2f/22/d22f225381a4f98e3e242510c42f294f.png);
+    background-size: 700px 200px;
+    margin: auto; 
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px; /* Adjust as needed */
+    max-width: 600px; 
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
 }
+
 
 .close {
     color: #aaa;

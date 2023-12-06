@@ -48,14 +48,12 @@ class UpdateGameLog extends BindingClass {
         const heroDropdown = document.getElementById('heroDropdown');
         const selectedHeroesBox = document.getElementById('selectedHeroesBox');
 
-        // Get selected heroes from the dropdown
         const selectedOptions = heroDropdown.selectedOptions;
         const selectedHeroes = Array.from(selectedOptions).map(option => option.value);
 
         // Clear the dropdown selection
         heroDropdown.selectedIndex = -1;
 
-        // Display selected heroes in the box
         selectedHeroes.forEach(hero => {
             const heroItem = document.createElement('div');
             heroItem.textContent = hero;
