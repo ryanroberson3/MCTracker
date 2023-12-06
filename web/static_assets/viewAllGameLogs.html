@@ -8,21 +8,43 @@
 
 <body class="background">
     <header class="header" id="header"></header>
-    <div class="card2">
-
-    </div>
     
     <div class="card">
         <h1> My GameLogs</h1>
             Click on the Game ID for more Details
         <ol id="gameLogList"></ol>
     </div>
+    <style>
+    .pagination {
+        justify-content: space-between;
+    }
+
+    .pagination button {
+        margin-right: 10px; 
+        margin-left: 10px;  
+    }
+    </style>
+    <div class="pagination">
+        <button id="previousButton" onclick="previousPage()">Previous</button>
+        <span id="currentPage">1</span>
+        <button id="nextButton" onclick="nextPage()">Next</button>
+    </div>
     </div>
     
     <div class="card">
-
-        <a href="index.html" class="button">Back to Home</a>
+        <div class="button-group2">
+        <a href="index.html" class="button">Home</a>
+        <a href="createGameLog.html" class="button">Create Game log</a>
     </div>
+    </div>
+    <script>
+        function previousPage() {
+            viewAllGameLogs.previousPage();
+        }
+        function nextPage() {
+            viewAllGameLogs.nextPage();
+        }
+    </script>
 </body>
 
 </html>

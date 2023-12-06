@@ -6,6 +6,7 @@ import com.nashss.se.mctracker.converters.LocalDateConverter;
 import com.nashss.se.mctracker.converters.ModelConverter;
 import com.nashss.se.mctracker.dynamodb.GameLogDao;
 import com.nashss.se.mctracker.dynamodb.models.GameLog;
+import com.nashss.se.mctracker.exceptions.DateAfterTodayException;
 import com.nashss.se.mctracker.models.GameLogModel;
 import com.nashss.se.mctracker.utils.IdUtils;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +14,6 @@ import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 
 public class CreateGameLogActivity {
@@ -30,6 +30,10 @@ public class CreateGameLogActivity {
 
         LocalDateConverter converter = new LocalDateConverter();
         LocalDate date = converter.unconvert(createGameLogRequest.getDate());
+
+        if (date.isAfter(LocalDate.now())) {
+            throw new DateAfterTodayException("You can't make a GameLog that hasn't happened yet! Change the date.");
+        }
 
         GameLog newGameLog = new GameLog();
         newGameLog.setEmail(createGameLogRequest.getEmail());

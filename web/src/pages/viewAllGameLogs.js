@@ -8,11 +8,14 @@ import { formatDateToMMDDYYYY } from '../util/dateUtils';
 class ViewAllGameLogs extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'addGameLogsToPage'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'addGameLogsToPage', 'previousPage', 'nextPage'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addGameLogsToPage);
         this.header = new Header(this.dataStore);
         console.log("ViewAllGameLogs constructor");
+
+        this.currentPage = 1;
+        this.logsPerPage = 8;
     }
 
     async clientLoaded() {
@@ -33,9 +36,14 @@ class ViewAllGameLogs extends BindingClass {
         if (gameLogs == null) {
             return;
         }
+
+        const startIndex = (this.currentPage - 1) * this.logsPerPage;
+        const endIndex = startIndex + this.logsPerPage;
+        const currentGameLogs = gameLogs.slice(startIndex, endIndex);
+
         let gameLogHtml = '<table><tr><th>Game Id</th><th>Date</th><th>Outcome</th><th>Aspects</th><th>Heroes</th><th>Villain</th></tr>';
 
-        for (const gameLog of gameLogs) {
+        for (const gameLog of currentGameLogs) {
             gameLogHtml += `
             <tr>
                 <td>
@@ -49,12 +57,48 @@ class ViewAllGameLogs extends BindingClass {
                 </tr>
             `;
         }
+        
+        const previousButton = document.getElementById('previousButton');
+        const nextButton = document.getElementById('nextButton');
+        const totalPages = Math.ceil(gameLogs.length / this.logsPerPage);
+
+        if (this.currentPage === 1) {
+            previousButton.disabled = true;
+        } else {
+            previousButton.disabled = false;
+        }
+    
+        if (this.currentPage === totalPages) {
+            nextButton.disabled = true;
+        } else {
+            nextButton.disabled = false;
+        }
+
         document.getElementById('gameLogList').innerHTML = gameLogHtml;
+        document.getElementById('currentPage').innerText = this.currentPage;
+    }
+
+    previousPage() {
+        if (this.currentPage > 1) {
+            this.currentPage--;
+            this.addGameLogsToPage();
+        }
+    }
+
+    nextPage() {
+        const gameLogs = this.dataStore.get('gameLogs');
+        const totalPages = Math.ceil(gameLogs.length / this.logsPerPage);
+
+        if (this.currentPage < totalPages) {
+            this.currentPage++;
+            this.addGameLogsToPage();
+        }
     }
 }
 
+
 const main = async () => {
-    const viewAllGameLogs = new ViewAllGameLogs();
-    viewAllGameLogs.mount();
+    window.viewAllGameLogs = new ViewAllGameLogs();
+    window.viewAllGameLogs.mount();
 }
 window.addEventListener('DOMContentLoaded', main);

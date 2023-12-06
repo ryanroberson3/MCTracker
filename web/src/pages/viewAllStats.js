@@ -51,14 +51,16 @@ class ViewAllStats extends BindingClass {
             options: {
                 title: {
                     display: true,
-                    text: "Stats are shown in percentages: Hover to see!",
-                    fontSize: 25
+                    position: 'bottom',
+                    fontSize: 20,
+                    fontColor: "#FFFFFF"
                 },
                 legend: {
                     display: true,
                     position: 'right',
                     labels: {
-                        fontSize: 20
+                        fontSize: 20,
+                        fontColor: "#FFFFFF",
                     }
                 }
             }

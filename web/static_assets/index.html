@@ -2,27 +2,50 @@
 <html>
 
 <head>
-</style>
-    <script type="text/javascript" src="assets/index.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body class="background">
     <header class="header" id="header"></header>
     <div class="card2">
-
+        <p class="chart-description">Welcome to the Marvel Champions tracker! Create an account to get started.</p>
+        <p class="chart-description"><small>Once you've logged in, click the buttom below to access Game Log info</small></p>
     </div>
     <div class="card">
-        <p class="button-group">
+        <button id="openModalButton" class="button4">MC Tracker</button>
+    </div> 
 
-            <a href="createGameLog.html" class="button2" id="search-button">Create GameLog</a>
-            <a href="viewAllGameLogs.html" class="button2" id="search-button">View GameLogs</a>
-            <a href="viewAllStats.html" class="button2" id="search-button">View My Stats</a>
 
-         </p>
+    <div id="myModal" class="modal">
 
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+        
+            <p class="button-group">
+                <a href="createGameLog.html" class="button2">Create GameLog</a>
+                <a href="viewAllGameLogs.html" class="button2">View GameLogs</a>
+                <a href="viewAllStats.html" class="button2">View Stats</a>
+            </p>
+        </div>
+    
     </div>
 
+    <script type="text/javascript" src="assets/index.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("closeModal").addEventListener("click", () => {
+                document.getElementById("myModal").style.display = "none";
+            });
+    
+            window.addEventListener("click", (event) => {
+                if (event.target === document.getElementById("myModal")) {
+                    document.getElementById("myModal").style.display = "none";
+                }
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

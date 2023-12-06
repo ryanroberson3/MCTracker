@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +38,11 @@ public class GetAllGameLogsActivityTest {
 
         gameLog1.setEmail(email);
         gameLog1.setGameId(game1Id);
+        gameLog1.setDate(LocalDate.now());
 
         gameLog2.setEmail(email);
         gameLog2.setGameId(game2Id);
+        gameLog2.setDate(LocalDate.now().plusDays(1));
 
         List<GameLog> gameLogs = new ArrayList<>();
         gameLogs.add(gameLog1);

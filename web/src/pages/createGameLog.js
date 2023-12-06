@@ -39,14 +39,11 @@ class CreateGameLog extends BindingClass {
         const heroDropdown = document.getElementById('heroDropdown');
         const selectedHeroesBox = document.getElementById('selectedHeroesBox');
 
-        // Get selected heroes from the dropdown
         const selectedOptions = heroDropdown.selectedOptions;
         const selectedHeroes = Array.from(selectedOptions).map(option => option.value);
 
-        // Clear the dropdown selection
         heroDropdown.selectedIndex = -1;
 
-        // Display selected heroes in the box
         selectedHeroes.forEach(hero => {
             const heroItem = document.createElement('div');
             heroItem.textContent = hero;
@@ -57,6 +54,11 @@ class CreateGameLog extends BindingClass {
     async populateDropdown(dropdownId, characters) {
         const dropdown = document.getElementById(dropdownId);
         dropdown.innerHTML = "";
+
+        const emptyOption = document.createElement('option');
+        emptyOption.value = '';
+        emptyOption.text = ' '; // Use a space or any other character for the label
+        dropdown.appendChild(emptyOption);
 
         characters.forEach(character => {
             const option = document.createElement('option');
@@ -78,25 +80,49 @@ class CreateGameLog extends BindingClass {
         createButton.innerText = 'Creating...';
     
         const date = document.getElementById('date').value;
-        const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
-        const aspect = Array.from(aspectCheckboxes).map(checkbox => checkbox.value);
-    
-        const outcomeWL = document.getElementById('outcomeWL').value;
-    
-        // Updated: Use the selected value directly from the dropdowns
-        const villainDropdown = document.getElementById('villainDropdown');
-        const villain = villainDropdown.value;
-    
-        const selectedHeroesBox = document.getElementById('selectedHeroesBox');
-        const selectedHeroes = Array.from(selectedHeroesBox.children).map(heroItem => heroItem.textContent);
-
-        if (selectedHeroes.length > 4) {
-            // Handle the case where more than 4 heroes are selected (show an error, etc.)
-            createButton.innerText = origButtonText;
-            errorMessageDisplay.innerText = 'Error: You can only select up to 4 heroes.';
+        if(!date) {
+            errorMessageDisplay.innerText = `You must select a date`;
             errorMessageDisplay.classList.remove('hidden');
             return;
         }
+        const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
+        const aspect = Array.from(aspectCheckboxes).map(checkbox => checkbox.value);
+        if(aspectCheckboxes.length === 0) {
+            errorMessageDisplay.innerText = `You must select at least 1 aspect`;
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+        }
+    
+        const outcomeWL = document.getElementById('outcomeWL').value;
+        if(!outcomeWL) {
+            errorMessageDisplay.innerText = `You must select an outcome`;
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+        }
+    
+        const villainDropdown = document.getElementById('villainDropdown');
+        const villain = villainDropdown.value;
+        if(!villain) {
+            errorMessageDisplay.innerText = `You must select a villain`;
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+        }
+    
+        const selectedHeroesBox = document.getElementById('selectedHeroesBox');
+        const selectedHeroes = Array.from(selectedHeroesBox.children).map(heroItem => heroItem.textContent);
+        if(selectedHeroes.length === 0) {
+            errorMessageDisplay.innerText = `You must select at least 1 hero`;
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+        }
+
+        if (selectedHeroes.length > 4) {
+            createButton.innerText = origButtonText;
+            errorMessageDisplay.innerText = `You can only select up to 4 heroes.`;
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+        }
+
     
         const gameLog = await this.client.createGameLog(date, aspect, outcomeWL, villain, selectedHeroes, (error) => {
             createButton.innerText = origButtonText;

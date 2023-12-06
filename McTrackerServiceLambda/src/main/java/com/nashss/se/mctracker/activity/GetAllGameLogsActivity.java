@@ -10,6 +10,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -28,6 +30,8 @@ public class GetAllGameLogsActivity {
 
         List<GameLog> gameLogs = gameLogDao.getAllGameLogsByEmail(getAllGameLogsRequest.getEmail());
         List<GameLogModel> gameLogModels = new ModelConverter().toGameLogModelList(gameLogs);
+
+        gameLogModels.sort(Comparator.comparing(GameLogModel::getDate).reversed());
 
         return GetAllGameLogsResult.builder()
                 .withGameLogList(gameLogModels)

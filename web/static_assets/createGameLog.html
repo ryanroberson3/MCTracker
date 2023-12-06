@@ -8,7 +8,6 @@
 
 <body class="background">
     <header class="header" id="header"></header>
-    <div class="card2"></div>
 
     <div class="card">
         <h2>Create GameLog</h2>
@@ -16,10 +15,11 @@
             <p class="hidden error" id="error-message"></p>
             <p class="form-field">
                 <label for="date"> Date: </label>
+                <p></p>
                 <input type="date" required class="validated-field" id="date" name="date">
             </p>
             <p class="form-field">
-                <label>Choose Aspects:</label><br>
+                <label>Aspects:</label><br>
 
                 <div class="custom-checkbox">
                     <input type="checkbox" name="aspect" value="Basic" id="aspect-basic">
@@ -52,7 +52,7 @@
                 </div>
             </p>
             <p class="form-field">
-                <label>Choose Outcome:</label><br>
+                <label>Outcome:</label><br>
                 <select name="outcomeWL" id="outcomeWL">
                     <option value=""></option>
                     <option value="Win">Win</option>
@@ -61,15 +61,16 @@
                 </select>
             </p>
             <p class="form-field">
-                <label>Choose Villain:</label><br>
+                <label>Villain:</label><br>
                 <select name="villainDropdown" id="villainDropdown"></select>
             </p>
             <p class="form-field" id="checkbox-container">
-                <label>Choose Heroes:</label><br>
+                <label>Hero(s):</label><br>
+                <label><small>Click Add Hero to select hero(s)</small></label>
                 <select name="heroDropdown" id="heroDropdown" multiple></select>
-                <!-- Added a button to add selected heroes to the selectedHeroesBox -->
+
                 <button type="button" id="addHero">Add Hero</button>
-                <!-- Added a box to display selected heroes -->
+              
                 <div id="selectedHeroesBox"></div>
             </p>
 
