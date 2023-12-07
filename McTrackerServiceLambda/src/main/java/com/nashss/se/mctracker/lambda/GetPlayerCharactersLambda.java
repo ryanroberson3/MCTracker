@@ -1,9 +1,10 @@
 package com.nashss.se.mctracker.lambda;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.mctracker.activity.requests.GetPlayerCharactersRequest;
 import com.nashss.se.mctracker.activity.results.GetPlayerCharactersResult;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 
 public class GetPlayerCharactersLambda
@@ -12,14 +13,11 @@ public class GetPlayerCharactersLambda
 
     @Override
     public LambdaResponse handleRequest(LambdaRequest<GetPlayerCharactersRequest> input, Context context) {
-        return super.runActivity(
-                () -> input.fromQuery((query) ->
+        return super.runActivity(() -> input.fromQuery(query ->
                         GetPlayerCharactersRequest.builder()
                                 .withRole(query.get("role"))
-                                .build()),
-                (request, serviceComponent) ->
+                                .build()), (request, serviceComponent) ->
                         serviceComponent.provideGetPlayerCharactersActivity().handleRequest(request)
         );
     }
-
 }

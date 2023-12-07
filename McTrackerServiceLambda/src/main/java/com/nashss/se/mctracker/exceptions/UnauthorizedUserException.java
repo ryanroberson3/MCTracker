@@ -1,6 +1,6 @@
 package com.nashss.se.mctracker.exceptions;
 
-public class UnauthorizedUserException extends RuntimeException{
+public class UnauthorizedUserException extends RuntimeException {
 
     private static final long serialVersionUID = -3770212442392788818L;
 

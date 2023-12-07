@@ -8,6 +8,11 @@ public class App {
         return "Hello World!";
     }
 
+    /**
+     * Main method printing Hello World.
+     *
+     * @param args string array for main method.
+     */
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
     }
