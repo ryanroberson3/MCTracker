@@ -1,9 +1,12 @@
 package com.nashss.se.mctracker.exceptions;
 
-public class DateAfterTodayException extends RuntimeException{
+public class DateAfterTodayException extends RuntimeException {
 
     private static final long serialVersionUID = -279107187855770269L;
 
+    /**
+     * Exception with no message or cause.
+     */
     public DateAfterTodayException() {
         super();
     }

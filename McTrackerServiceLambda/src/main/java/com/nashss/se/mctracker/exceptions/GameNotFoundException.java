@@ -1,10 +1,13 @@
 package com.nashss.se.mctracker.exceptions;
 
-public class GameNotFoundException extends RuntimeException{
+public class GameNotFoundException extends RuntimeException {
 
 
     private static final long serialVersionUID = 5945713333176633221L;
 
+    /**
+     * Exception with no message or cause.
+     */
     public GameNotFoundException() {
         super();
     }

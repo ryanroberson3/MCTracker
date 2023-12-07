@@ -4,8 +4,7 @@
 
 ## 1. Problem Statement
 
-**MCTracker** is an app that keeps track of your Marvel Champions collection and logs games for players. Marvel Champions
-is a LCG (living card game) that you can play solo or up to 4 players. The app will allow players to log the Hero(s) they use, 
+**MCTracker** is an app that logs games for players and shows them their overall stats. Marvel Champions is a LCG (living card game) that you can play solo or up to 4 players. The app will allow players to log the Hero(s) they use, 
 the villain they face, whether they won or lost, and what aspect(s) they played. It will also keep track of overall 
 w/l stats.
 

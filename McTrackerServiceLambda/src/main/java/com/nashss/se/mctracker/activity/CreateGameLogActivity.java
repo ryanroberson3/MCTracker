@@ -9,22 +9,36 @@ import com.nashss.se.mctracker.dynamodb.models.GameLog;
 import com.nashss.se.mctracker.exceptions.DateAfterTodayException;
 import com.nashss.se.mctracker.models.GameLogModel;
 import com.nashss.se.mctracker.utils.IdUtils;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
 import java.time.LocalDate;
+import javax.inject.Inject;
 
 
 public class CreateGameLogActivity {
 
     private final Logger log = LogManager.getLogger();
     private final GameLogDao gameLogDao;
+
+    /**
+     * CreateGameLogActivity Constructor.
+     *
+     * @param gameLogDao GameLogDao to access the game log dao.
+     */
     @Inject
     public CreateGameLogActivity(GameLogDao gameLogDao) {
         this.gameLogDao = gameLogDao;
     }
 
+    /**
+     * This method handles the incoming request for creating a game log.
+     *
+     * @param createGameLogRequest request object containing the date, aspect,
+     *                             outcome, hero and villain to create a game log.
+     * @return GameLogModel
+     */
     public CreateGameLogResult handleRequest(final CreateGameLogRequest createGameLogRequest) {
         log.info("received CreateGameLogRequest {}", createGameLogRequest);
 
