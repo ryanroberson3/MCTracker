@@ -51,8 +51,8 @@ class ViewAllGameLogs extends BindingClass {
                 </td>
                     <td>${formatDateToMMDDYYYY(gameLog.date)}</td>
                     <td>${gameLog.outcomeWL}</td>
-                    <td>${gameLog.aspect}</td>
-                    <td>${gameLog.heroes}</td>
+                    <td>${gameLog.aspect.join(', ')}</td>
+                    <td>${gameLog.heroes.join(', ')}</td>
                     <td>${gameLog.villain}</td>
                 </tr>
             `;

@@ -156,8 +156,8 @@ class UpdateGameLog extends BindingClass {
         }
         document.getElementById('current-date').innerText = formatDateToMMDDYYYY(originalGameLog.date);
         document.getElementById('current-outcomeWL').innerText = originalGameLog.outcomeWL;
-        document.getElementById('current-aspect').innerText = originalGameLog.aspect;
-        document.getElementById('current-heroes').innerText = originalGameLog.heroes;
+        document.getElementById('current-aspect').innerText = originalGameLog.aspect.join(', ');
+        document.getElementById('current-heroes').innerText = originalGameLog.heroes.join(', ');
         document.getElementById('current-villain').innerText = originalGameLog.villain;
     }
 
