@@ -1,8 +1,8 @@
 :root {
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
     --primary-color: #fdfcfc;
-    --secondary-color: #2200ff;
-    --tertiary-color: hsl(0, 98%, 48%);
+    --secondary-color: #0000ff;
+    --tertiary-color: hsl(0, 100%, 50%);
     --error-color: #EE3A23;
 }
 

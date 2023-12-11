@@ -10,7 +10,7 @@ import { parseDateFromMMDDYYYY } from '../util/dateUtils';
 class UpdateGameLog extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'clientLoaded', 'populateDropdown', 'submit', 'redirectToViewGameLog', 'viewGameLog'], this);
+        this.bindClassMethods(['mount', 'clientLoaded', 'populateDropdown', 'submit', 'redirectToViewGameLog', 'viewGameLog', 'addHero', 'removeHero'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewGameLog);
         this.dataStore.addChangeListener(this.viewGameLog);
@@ -32,6 +32,68 @@ class UpdateGameLog extends BindingClass {
 
         this.populateDropdown('villainDropdown', villains);
         this.populateDropdown('heroDropdown', heroes);
+
+        date.value = formatDateToMMDDYYYY(originalGameLog.date);
+        outcomeWL.value = originalGameLog.outcomeWL;
+        villainDropdown.value = originalGameLog.villain;
+        
+        // originalGameLog.heroes.forEach(hero => {
+        //     const heroItem = document.createElement('div');
+        //     heroItem.textContent = hero;
+        //     selectedHeroesBox.appendChild(heroItem);
+        // });
+
+        // originalGameLog.heroes.forEach(hero => {
+        //     const option = document.createElement('option');
+        //     option.value = hero;
+        //     option.text = hero;
+        //     heroDropdown.appendChild(option);
+        // });
+        originalGameLog.heroes.forEach(hero => {
+            const trimmedHero = hero.trim(); // Trim leading and trailing spaces
+            const heroItem = document.createElement('div');
+        
+            // Create a remove button with a Font Awesome circle x-mark icon
+            const removeButton = document.createElement('button');
+            removeButton.innerHTML = '<i class="fas fa-times-circle"></i>'; // Use the times-circle icon
+        
+            // Add a click event to remove the hero
+            removeButton.addEventListener('click', () => this.removeHero(trimmedHero, heroItem));
+        
+            // Create a span for the hero name
+            const heroNameSpan = document.createElement('span');
+            heroNameSpan.textContent = trimmedHero; // Use the trimmed hero name
+        
+            // Append the hero name span and the remove button to the hero item
+            heroItem.appendChild(heroNameSpan);
+            heroItem.appendChild(removeButton);
+        
+            // Append the hero item to the selectedHeroesBox
+            selectedHeroesBox.appendChild(heroItem);
+        });
+        
+        originalGameLog.heroes.forEach(hero => {
+            const option = document.createElement('option');
+            option.value = hero.trim(); // Trim leading and trailing spaces
+            option.text = hero.trim(); // Trim leading and trailing spaces
+            heroDropdown.appendChild(option);
+        });
+        
+        
+        
+        
+        
+        
+
+        const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]');
+        originalGameLog.aspect.forEach(originalAspect => {
+        aspectCheckboxes.forEach(checkbox => {
+            if (checkbox.value === originalAspect) {
+                checkbox.checked = true;
+            }
+        });
+    });
+
     }
 
 
@@ -39,27 +101,53 @@ class UpdateGameLog extends BindingClass {
         this.header.addHeaderToPage();
         this.client = new McTrackerClient();
         this.clientLoaded();
-        document.getElementById('submit-btn').addEventListener('click', this.submit);
 
+        document.getElementById('submit-btn').addEventListener('click', this.submit);
         document.getElementById('addHero').addEventListener('click', this.addHero.bind(this));
     }
 
     addHero() {
         const heroDropdown = document.getElementById('heroDropdown');
         const selectedHeroesBox = document.getElementById('selectedHeroesBox');
-
+    
         const selectedOptions = heroDropdown.selectedOptions;
         const selectedHeroes = Array.from(selectedOptions).map(option => option.value);
-
-        // Clear the dropdown selection
+    
         heroDropdown.selectedIndex = -1;
-
+    
         selectedHeroes.forEach(hero => {
             const heroItem = document.createElement('div');
+    
+            // Create a remove button with a Font Awesome circle x-mark icon
+            const removeButton = document.createElement('button');
+            removeButton.innerHTML = '<i class="fas fa-times-circle"></i>'; // Use the times-circle icon
+    
+            // Add a click event to remove the hero
+            removeButton.addEventListener('click', () => this.removeHero(hero, heroItem));
+    
+            // Add the hero name without any additional characters
             heroItem.textContent = hero;
+    
+            // Append the remove button and the hero name
+            heroItem.appendChild(removeButton);
             selectedHeroesBox.appendChild(heroItem);
         });
     }
+
+    removeHero(hero, heroItem) {
+        // Remove the hero from the selectedHeroesBox
+        heroItem.remove();
+    
+        // Unselect the hero in the heroDropdown
+        const heroDropdown = document.getElementById('heroDropdown');
+        const optionToRemove = Array.from(heroDropdown.options)
+            .find(option => option.value === hero);
+        
+        if (optionToRemove) {
+            optionToRemove.selected = false;
+        }
+    }
+    
 
     async populateDropdown(dropdownId, characters) {
         const dropdown = document.getElementById(dropdownId);
@@ -127,7 +215,7 @@ class UpdateGameLog extends BindingClass {
         }
 
         if (selectedHeroes.length > 4) {
-            createButton.innerText = origButtonText;
+            updateButton.innerText = origButtonText;
             errorMessageDisplay.innerText = 'Error: You can only select up to 4 heroes.';
             errorMessageDisplay.classList.remove('hidden');
             return;
@@ -154,11 +242,6 @@ class UpdateGameLog extends BindingClass {
         if (originalGameLog == null) {
             return;
         }
-        document.getElementById('current-date').innerText = formatDateToMMDDYYYY(originalGameLog.date);
-        document.getElementById('current-outcomeWL').innerText = originalGameLog.outcomeWL;
-        document.getElementById('current-aspect').innerText = originalGameLog.aspect.join(', ');
-        document.getElementById('current-heroes').innerText = originalGameLog.heroes.join(', ');
-        document.getElementById('current-villain').innerText = originalGameLog.villain;
     }
 
 

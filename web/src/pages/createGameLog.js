@@ -8,7 +8,7 @@ class CreateGameLog extends BindingClass {
 
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'populateDropdown', 'mount', 'submit', 'redirectToViewGameLog', 'addHero'], this);
+        this.bindClassMethods(['clientLoaded', 'populateDropdown', 'mount', 'submit', 'redirectToViewGameLog', 'addHero', 'removeHero'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewGameLog);
         this.header = new Header(this.dataStore);
@@ -38,19 +38,47 @@ class CreateGameLog extends BindingClass {
     addHero() {
         const heroDropdown = document.getElementById('heroDropdown');
         const selectedHeroesBox = document.getElementById('selectedHeroesBox');
-
+    
         const selectedOptions = heroDropdown.selectedOptions;
         const selectedHeroes = Array.from(selectedOptions).map(option => option.value);
-
+    
         heroDropdown.selectedIndex = -1;
-
+    
         selectedHeroes.forEach(hero => {
             const heroItem = document.createElement('div');
+    
+            // Create a remove button with a Font Awesome circle x-mark icon
+            const removeButton = document.createElement('button');
+            removeButton.innerHTML = '<i class="fas fa-times-circle"></i>'; // Use the times-circle icon
+    
+            // Add a click event to remove the hero
+            removeButton.addEventListener('click', () => this.removeHero(hero, heroItem));
+    
+            // Add the hero name without any additional characters
             heroItem.textContent = hero;
+    
+            // Append the remove button and the hero name
+            heroItem.appendChild(removeButton);
             selectedHeroesBox.appendChild(heroItem);
         });
     }
     
+    
+    
+    removeHero(hero, heroItem) {
+        // Remove the hero from the selectedHeroesBox
+        heroItem.remove();
+    
+        // Unselect the hero in the heroDropdown
+        const heroDropdown = document.getElementById('heroDropdown');
+        const optionToRemove = Array.from(heroDropdown.options)
+            .find(option => option.value === hero);
+        
+        if (optionToRemove) {
+            optionToRemove.selected = false;
+        }
+    }
+
     async populateDropdown(dropdownId, characters) {
         const dropdown = document.getElementById(dropdownId);
         dropdown.innerHTML = "";
@@ -83,6 +111,7 @@ class CreateGameLog extends BindingClass {
         if(!date) {
             errorMessageDisplay.innerText = `You must select a date`;
             errorMessageDisplay.classList.remove('hidden');
+            createButton.innerText = 'Submit';
             return;
         }
         const aspectCheckboxes = document.querySelectorAll('input[name="aspect"]:checked');
@@ -90,6 +119,7 @@ class CreateGameLog extends BindingClass {
         if(aspectCheckboxes.length === 0) {
             errorMessageDisplay.innerText = `You must select at least 1 aspect`;
             errorMessageDisplay.classList.remove('hidden');
+            createButton.innerText = 'Submit';
             return;
         }
     
@@ -97,7 +127,8 @@ class CreateGameLog extends BindingClass {
         if(!outcomeWL) {
             errorMessageDisplay.innerText = `You must select an outcome`;
             errorMessageDisplay.classList.remove('hidden');
-            return;
+            createButton.innerText = 'Submit';
+            return ;
         }
     
         const villainDropdown = document.getElementById('villainDropdown');
@@ -105,6 +136,7 @@ class CreateGameLog extends BindingClass {
         if(!villain) {
             errorMessageDisplay.innerText = `You must select a villain`;
             errorMessageDisplay.classList.remove('hidden');
+            createButton.innerText = 'Submit';
             return;
         }
     
@@ -113,6 +145,7 @@ class CreateGameLog extends BindingClass {
         if(selectedHeroes.length === 0) {
             errorMessageDisplay.innerText = `You must select at least 1 hero`;
             errorMessageDisplay.classList.remove('hidden');
+            createButton.innerText = 'Submit';
             return;
         }
 
@@ -120,6 +153,7 @@ class CreateGameLog extends BindingClass {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `You can only select up to 4 heroes.`;
             errorMessageDisplay.classList.remove('hidden');
+            createButton.innerText = 'Submit';
             return;
         }
 
