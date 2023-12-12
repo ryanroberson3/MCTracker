@@ -1,3 +1,4 @@
+import { Auth } from 'aws-amplify';
 import McTrackerClient from '../api/mcTrackerClient';
 import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
@@ -12,13 +13,23 @@ class Homepage extends BindingClass {
         console.log("Homepage constructor");
     }
 
-    mount() {
+    async mount() {
         this.header.addHeaderToPage();
 
         this.client = new McTrackerClient();
 
         this.setupModalLogic();
 
+        const isLoggedIn = await Auth.currentAuthenticatedUser();
+
+        try {
+
+            if (isLoggedIn) {
+                this.showModal();
+            }
+        } catch (error) {
+            console.log('User is not authorized', error);
+        }
         document.getElementById("openModalButton").addEventListener("click", () => {
             this.showModal();
         });

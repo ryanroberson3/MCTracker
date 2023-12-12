@@ -144,7 +144,7 @@
 .card {
     color: var(--primary-color);
     background-color: rgba(var(--secondary-color), 0.5);
-    margin: 20px;
+    margin: 40px;
     padding: 10px 20px;
     gap: 10px;
     text-align: center;
