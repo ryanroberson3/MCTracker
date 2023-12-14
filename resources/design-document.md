@@ -70,7 +70,7 @@ We will use API Gateway and AWS Lambda to create the following endpoints:
 - GetOverallStats
 
 
-I will store GameLogs and heroes and villains in separate DynamoDB tables.
+I will store GameLogs and player characters in separate DynamoDB tables.
 
 
 # 6. API
