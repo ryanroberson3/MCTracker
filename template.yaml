@@ -236,7 +236,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        RiverPetSittingService:
+        McTracker:
           Type: Api
           Properties:
             Path: /game_logs/{gameId}
@@ -256,7 +256,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        RiverPetSittingService:
+        McTracker:
           Type: Api
           Properties:
             Path: /game_logs/{gameId}
@@ -276,7 +276,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        McTracker:
           Type: Api
           Properties:
             Path: /player_characters
@@ -318,7 +318,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        RiverPetSittingService:
+        McTracker:
           Type: Api
           Properties:
             Path: /game_logs/{gameId}
@@ -338,7 +338,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        RiverPetSittingService:
+        McTracker:
           Type: Api
           Properties:
             Path: /game_logs
@@ -358,7 +358,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        RiverPetSittingService:
+        McTracker:
           Type: Api
           Properties:
             Path: /stats
