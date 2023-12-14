@@ -76,17 +76,23 @@ class ViewGameLog extends BindingClass {
         const deleteButton = document.getElementById('deleteGameLogButton');
         const messageContainer = document.getElementById('messageContainer');
         const deleteMessage = document.getElementById('message');
-
-        this.client.deleteGameLog(gameLog.gameId);
-
-        deleteButton.style.display = 'none';
-        messageContainer.style.display = 'block';
-
-        deleteMessage.textContent = 'GameLog has been deleted';
-
-        setTimeout(() => {
-            window.location.href = `/deleteGameLog.html`;
-          }, 3000); //3000 milli = 3 sec
+    
+        const confirmed = confirm("Are you sure you want to delete the game log?");
+    
+        if (confirmed) {
+            this.client.deleteGameLog(gameLog.gameId);
+    
+            deleteButton.style.display = 'none';
+            messageContainer.style.display = 'block';
+    
+            deleteMessage.textContent = 'GameLog has been deleted';
+    
+            setTimeout(() => {
+                window.location.href = `/deleteGameLog.html`;
+            }, 3000); //3000 milliseconds = 3 seconds
+        } else {
+            console.log("Deletion canceled");
+        }
     }
 }
 

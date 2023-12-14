@@ -19,9 +19,24 @@ class ViewAllGameLogs extends BindingClass {
     }
 
     async clientLoaded() {
-        const gameLogs = await this.client.viewAllGameLogs();
-        this.dataStore.set('gameLogs', gameLogs);
-    }
+        try {
+          const gameLogs = await this.client.viewAllGameLogs();
+          if (!gameLogs) {
+            const errorMessageDisplay = document.getElementById('error-message');
+            errorMessageDisplay.innerText = 'Create a GameLog first!';
+            errorMessageDisplay.classList.remove('hidden');
+            return;
+          }
+          this.dataStore.set('gameLogs', gameLogs);
+        } catch (error) {
+          console.error('Error loading game logs:', error);
+          const errorMessageDisplay = document.getElementById('error-message');
+          errorMessageDisplay.innerText = `Error: ${error.message}`;
+          errorMessageDisplay.classList.remove('hidden');
+        }
+      }
+      
+    
 
     mount() {
         this.header.addHeaderToPage();
